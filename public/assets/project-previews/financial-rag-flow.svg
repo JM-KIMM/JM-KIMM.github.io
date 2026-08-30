@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Financial RAG two-stage retrieval flow</title>
+  <desc id="desc">질문 증강, FAISS 후보 검색, 임계값 필터, Cross-Encoder 재정렬, 최종 근거와 답변으로 이어지는 흐름</desc>
+  <rect width="1600" height="900" fill="#ebe7df"/>
+  <path d="M0 106h1600M0 794h1600" stroke="#c8c0b3"/>
+  <text x="88" y="74" fill="#6f685f" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="3">FINANCIAL SECURITY RAG · RETRIEVAL FLOW</text>
+  <text x="1512" y="74" text-anchor="end" fill="#6f685f" font-family="Arial, sans-serif" font-size="18">PRIVATE 6 / 283</text>
+  <g transform="translate(88 246)">
+    <rect width="228" height="326" rx="22" fill="#f8f6f1" stroke="#aca397" stroke-width="2"/>
+    <text x="26" y="44" fill="#8a8177" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2">01 · QUERY</text>
+    <text x="26" y="109" fill="#25221f" font-family="Arial, sans-serif" font-size="28" font-weight="700">질문 원문</text>
+    <text x="26" y="157" fill="#625b53" font-family="Arial, sans-serif" font-size="18">금융·법률 용어와</text>
+    <text x="26" y="188" fill="#625b53" font-family="Arial, sans-serif" font-size="18">질문 유형을 보강</text>
+    <rect x="26" y="247" width="176" height="44" rx="22" fill="#dad4ca"/>
+    <text x="114" y="275" text-anchor="middle" fill="#38332e" font-family="Arial, sans-serif" font-size="15" font-weight="700">ORIGINAL + AUGMENT</text>
+  </g>
+  <path d="M337 409h58" stroke="#8b8173" stroke-width="2"/>
+  <path d="m386 400 10 9-10 9" fill="none" stroke="#8b8173" stroke-width="2"/>
+  <g transform="translate(416 246)">
+    <rect width="228" height="326" rx="22" fill="#2b2b29"/>
+    <text x="26" y="44" fill="#bfb7aa" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2">02 · RECALL</text>
+    <text x="26" y="109" fill="#f5f1e9" font-family="Arial, sans-serif" font-size="28" font-weight="700">FAISS 검색</text>
+    <text x="26" y="157" fill="#c8c1b6" font-family="Arial, sans-serif" font-size="18">IndexFlatIP에서</text>
+    <text x="26" y="188" fill="#c8c1b6" font-family="Arial, sans-serif" font-size="18">후보를 넓게 회수</text>
+    <text x="26" y="278" fill="#d3ad58" font-family="Arial, sans-serif" font-size="38" font-weight="700">TOP 50</text>
+  </g>
+  <path d="M665 409h58" stroke="#8b8173" stroke-width="2"/>
+  <path d="m714 400 10 9-10 9" fill="none" stroke="#8b8173" stroke-width="2"/>
+  <g transform="translate(744 246)">
+    <rect width="228" height="326" rx="22" fill="#f8f6f1" stroke="#aca397" stroke-width="2"/>
+    <text x="26" y="44" fill="#8a8177" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2">03 · FILTER</text>
+    <text x="26" y="109" fill="#25221f" font-family="Arial, sans-serif" font-size="28" font-weight="700">유사도 필터</text>
+    <text x="26" y="157" fill="#625b53" font-family="Arial, sans-serif" font-size="18">관련성이 낮은 문서를</text>
+    <text x="26" y="188" fill="#625b53" font-family="Arial, sans-serif" font-size="18">생성 전에 제거</text>
+    <text x="26" y="278" fill="#7b6434" font-family="Arial, sans-serif" font-size="38" font-weight="700">≥ 0.50</text>
+  </g>
+  <path d="M993 409h58" stroke="#8b8173" stroke-width="2"/>
+  <path d="m1042 400 10 9-10 9" fill="none" stroke="#8b8173" stroke-width="2"/>
+  <g transform="translate(1072 246)">
+    <rect width="228" height="326" rx="22" fill="#c49b44"/>
+    <text x="26" y="44" fill="#55431f" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2">04 · PRECISION</text>
+    <text x="26" y="109" fill="#1e1b17" font-family="Arial, sans-serif" font-size="28" font-weight="700">BGE 재정렬</text>
+    <text x="26" y="157" fill="#493a20" font-family="Arial, sans-serif" font-size="18">질문과 문단을 함께</text>
+    <text x="26" y="188" fill="#493a20" font-family="Arial, sans-serif" font-size="18">읽고 근거를 재평가</text>
+    <text x="26" y="278" fill="#201b14" font-family="Arial, sans-serif" font-size="38" font-weight="700">≥ 0.85</text>
+  </g>
+  <path d="M1321 409h58" stroke="#8b8173" stroke-width="2"/>
+  <path d="m1370 400 10 9-10 9" fill="none" stroke="#8b8173" stroke-width="2"/>
+  <g transform="translate(1400 246)">
+    <rect width="112" height="326" rx="22" fill="#f8f6f1" stroke="#aca397" stroke-width="2"/>
+    <text x="56" y="44" text-anchor="middle" fill="#8a8177" font-family="Arial, sans-serif" font-size="14" font-weight="700">05</text>
+    <text x="56" y="108" text-anchor="middle" fill="#25221f" font-family="Arial, sans-serif" font-size="26" font-weight="700">≤ 5</text>
+    <text x="56" y="148" text-anchor="middle" fill="#625b53" font-family="Arial, sans-serif" font-size="16">근거</text>
+    <path d="M31 202h50M31 222h50M31 242h38" stroke="#9a9185" stroke-width="5" stroke-linecap="round"/>
+    <text x="56" y="291" text-anchor="middle" fill="#25221f" font-family="Arial, sans-serif" font-size="15" font-weight="700">A.X</text>
+  </g>
+  <g transform="translate(88 660)">
+    <text fill="#2e2a25" font-family="Arial, sans-serif" font-size="23" font-weight="700">넓게 찾고, 엄격하게 줄인 뒤, 남은 근거만 답변에 사용했습니다.</text>
+    <text y="47" fill="#756d64" font-family="Arial, sans-serif" font-size="17">OFFLINE · SINGLE LLM · 16,384 CONTEXT · RETRIEVAL-FIRST DESIGN</text>
+  </g>
+</svg>
