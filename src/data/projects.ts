@@ -4,6 +4,7 @@ export type Project = {
   slug: string
   type: WorkType
   title: string
+  detailTitle: string
   shortTitle: string
   eyebrow: string
   period: string
@@ -26,6 +27,7 @@ export const projects: Project[] = [
     slug: 'inha-world-model',
     type: 'Project',
     title: '로봇 미래 행동 영상 생성 · World Model',
+    detailTitle: '2026 인하 인공지능 챌린지',
     shortTitle: 'INHA World Model',
     eyebrow: 'WORLD MODEL · VIDEO DIFFUSION · ROBOTICS',
     period: '2026.07.16 — 2026.08.20',
@@ -45,6 +47,7 @@ export const projects: Project[] = [
     slug: 'cj-logistics-3d-box',
     type: 'Project',
     title: 'CJ대한통운 · CCTV 기반 박스 수량 및 3D 크기 추정',
+    detailTitle: 'CJ대한통운 미래기술챌린지 2026',
     shortTitle: 'CJ Logistics',
     eyebrow: 'COMPUTER VISION · GEOMETRY · OFFLINE INFERENCE',
     period: '2026.06.22 — 2026.07.16',
@@ -64,6 +67,7 @@ export const projects: Project[] = [
     slug: 'financial-rag',
     type: 'Project',
     title: '금융보안 RAG · BGE 리랭커 기반 질의응답',
+    detailTitle: '2025 금융 AI Challenge : 금융 AI 모델 경쟁',
     shortTitle: 'Financial RAG',
     eyebrow: 'RETRIEVAL · RERANKING · LOCAL LLM',
     period: '2025.07 — 2025.09',
@@ -83,6 +87,7 @@ export const projects: Project[] = [
     slug: 'visionchef',
     type: 'Project',
     title: 'VisionChef · Interactive Cooking Copilot',
+    detailTitle: 'VisionChef',
     shortTitle: 'VisionChef',
     eyebrow: 'RAG · TOOL-CALLING AGENT · VOICE UX',
     period: '2026.03 — 2026.06',
@@ -103,6 +108,7 @@ export const projects: Project[] = [
     slug: 'undergraduate-research-smishing',
     type: 'Research',
     title: '한국어 스미싱 탐지 연구',
+    detailTitle: 'AIF.Lab 학부연구생',
     shortTitle: 'Smishing Research',
     eyebrow: 'DATASET · NLP · EXPLAINABLE AI',
     period: '2025.06 — 2026.03',
@@ -121,6 +127,7 @@ export const projects: Project[] = [
     slug: 'seongnam-xai',
     type: 'Project',
     title: '성남 생활상권 성장 잠재력 대시보드 · XAI',
+    detailTitle: '2026년 성남시 공공데이터 활용 시각화 경진대회',
     shortTitle: 'Seongnam XAI',
     eyebrow: 'PUBLIC DATA · CLUSTERING · LOCAL LLM',
     period: '2026.03 — 2026.05',
@@ -139,6 +146,7 @@ export const projects: Project[] = [
     slug: 'hansol-2pass',
     type: 'Project',
     title: '건설 안전 대응 생성 RAG',
+    detailTitle: '건설공사 사고 예방 및 대응책 생성 : 한솔데코 시즌3 생성 AI 경진대회',
     shortTitle: 'Construction Safety RAG',
     eyebrow: 'QA RETRIEVAL · CONTEXT COMPRESSION · TWO-LLM',
     period: '2025.02 — 2025.03',

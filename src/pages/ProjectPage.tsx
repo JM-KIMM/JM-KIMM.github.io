@@ -28,7 +28,7 @@ export default function ProjectPage() {
         <div className="case-hero-heading">
           <div>
             <p className="eyebrow">{project.type.toUpperCase()} · {project.period}</p>
-            <h1>{project.title}</h1>
+            <h1>{project.detailTitle}</h1>
           </div>
           <p className="case-lede">{caseStudy.lede}</p>
         </div>
