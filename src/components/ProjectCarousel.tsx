@@ -7,7 +7,7 @@ const clamp = (value: number, min: number, max: number) => Math.min(Math.max(val
 
 export default function ProjectCarousel({ projects }: { projects: Project[] }) {
   const location = useLocation()
-  const storageKey = `project-carousel:${location.pathname}`
+  const storageKey = `project-carousel:v2:${location.pathname}`
   const trackRef = useRef<HTMLDivElement>(null)
   const frameRef = useRef<number | null>(null)
   const pointerStartRef = useRef<number | null>(null)

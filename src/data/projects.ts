@@ -46,7 +46,7 @@ const projectEntries: Project[] = [
     hasImplementation: true,
   },
   {
-    sortKey: '2026-06-22',
+    sortKey: '2026-07-16',
     slug: 'cj-logistics-3d-box',
     type: 'Project',
     title: 'CJ대한통운 · CCTV 기반 박스 수량 및 3D 크기 추정',
