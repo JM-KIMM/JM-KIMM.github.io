@@ -2,31 +2,31 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 :root {
-  --bg: #fdfdfd;
+  --bg: #f6f6f2;
   --paper: #ffffff;
   --ink: #090909;
-  --muted: #71716c;
-  --line: #deded8;
+  --muted: #666762;
+  --line: #d8d8d1;
   --accent: #090909;
   --accent-2: #9bc4b7;
   --dark: #090909;
   --glass: rgba(253,253,253,.88);
-  --soft: #f3f3f0;
+  --soft: #eeeee9;
   --shadow: 0 18px 50px rgba(9,9,9,.08);
-  --max: 1120px;
+  --max: 1160px;
   color-scheme: light;
 }
 [data-theme='dark'] {
-  --bg: #090909;
-  --paper: #101010;
-  --ink: #fdfdfd;
-  --muted: #a3a39d;
-  --line: #333330;
-  --accent: #fdfdfd;
+  --bg: #10100f;
+  --paper: #171716;
+  --ink: #f4f4ef;
+  --muted: #b2b2aa;
+  --line: #3d3d38;
+  --accent: #f4f4ef;
   --accent-2: #9bc4b7;
   --dark: #050505;
-  --glass: rgba(9,9,9,.88);
-  --soft: #181817;
+  --glass: rgba(16,16,15,.9);
+  --soft: #20201e;
   --shadow: 0 18px 50px rgba(0,0,0,.3);
   color-scheme: dark;
 }
@@ -37,6 +37,7 @@ a { color: inherit; text-decoration: none; }
 button, input { font: inherit; }
 button { color: inherit; }
 ::selection { background: var(--accent); color: #fff; }
+[data-theme='dark'] ::selection { color: #090909; }
 :focus-visible { outline: 3px solid color-mix(in srgb, var(--accent) 70%, transparent); outline-offset: 3px; }
 .site-shell { min-height: 100vh; }
 .page-pad { width: min(calc(100% - 48px), var(--max)); margin: 0 auto; }
@@ -185,9 +186,9 @@ button { color: inherit; }
 .theme-button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: var(--paper); color: var(--accent); cursor: pointer; line-height: 1; }
 .nav-actions .nav-github { font-size: 13px; font-weight: 700; }
 .menu-button { min-width: 54px; cursor: pointer; }
-[data-theme='dark'] .nav-links a { color: #a9b0c0; }
+[data-theme='dark'] .nav-links a { color: var(--muted); opacity: .78; }
 [data-theme='dark'] .nav-links a:hover,
-[data-theme='dark'] .nav-links a.active { color: var(--ink); }
+[data-theme='dark'] .nav-links a.active { color: var(--ink); opacity: 1; }
 
 .hero { min-height: calc(100svh - 78px); padding-top: clamp(70px, 9vh, 120px); padding-bottom: 90px; display: flex; flex-direction: column; justify-content: center; }
 .hero-kicker { background: color-mix(in srgb, var(--paper) 76%, transparent); color: var(--muted); }
@@ -263,7 +264,7 @@ button { color: inherit; }
 [data-theme='dark'] .suggestions button,
 [data-theme='dark'] .message p,
 [data-theme='dark'] .chat-input input { background: var(--soft); color: var(--ink); }
-[data-theme='dark'] .message.user p { background: var(--accent); color: #fff; }
+[data-theme='dark'] .message.user p { background: var(--ink); color: var(--bg); }
 [data-theme='dark'] .summary-cta { background: var(--paper); }
 [data-theme='dark'] .button.primary { color: #0b1020; }
 [data-theme='dark'] .home-contact .button { color: var(--ink); }
@@ -320,7 +321,6 @@ button { color: inherit; }
 }
 
 /* v7 compact portfolio direction */
-:root { --max: 1080px; }
 body { font-size: 15px; }
 .site-header .nav-wrap { height: 64px; }
 .brand { font-size: 23px; }
@@ -1087,14 +1087,6 @@ body { font-size: 15px; letter-spacing: -.012em; }
 }
 
 /* v14 · evidence-led portfolio system */
-:root {
-  --bg: #f6f6f2;
-  --paper: #ffffff;
-  --soft: #eeeee9;
-  --line: #d8d8d1;
-  --muted: #666762;
-  --max: 1160px;
-}
 
 body { letter-spacing: -.012em; }
 .eyebrow { font-size: 9px; color: var(--muted); }
@@ -1167,7 +1159,7 @@ body { letter-spacing: -.012em; }
 .case-demo { padding-top: 96px; padding-bottom: 104px; scroll-margin-top: 118px; }
 .case-decisions,
 .case-evidence,
-.case-demo { background: var(--paper); }
+.case-demo { background: var(--bg); }
 .case-brief,
 .case-system,
 .case-validation,
