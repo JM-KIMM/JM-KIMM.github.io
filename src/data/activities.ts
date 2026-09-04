@@ -119,7 +119,7 @@ export const competitionActivities: Activity[] = [
     title: '2026 인하 인공지능 챌린지',
     subtitle: '로봇 미래 행동 영상 생성 · World Model Challenge',
     period: '2026.07 — 08',
-    role: '3인 팀 리더 · World Model 학습·추론',
+    role: '3인 팀장 · World Model 학습·추론',
     summary: '초기 로봇 이미지와 16단계 관절 명령으로 미래 영상을 생성하는 액션 조건부 월드 모델을 개발했습니다.',
     points: ['Cosmos-Predict2.5-2B 기반 LoRA·액션 임베더 학습', '데이터 정제·움직임 가중·DRaFT 보상 미세조정', '오토가이던스와 30-step 추론 최적화'],
     purpose: '정적인 인식 문제를 넘어 행동에 따라 다음 상태가 어떻게 변하는지 예측하는 생성 모델을 직접 다루기 위해 참여했습니다.',

@@ -33,7 +33,7 @@ const projectEntries: Project[] = [
     shortTitle: 'INHA World Model',
     eyebrow: 'WORLD MODEL · VIDEO DIFFUSION · ROBOTICS',
     period: '2026.07.16 — 2026.08.20',
-    role: '팀 리더 · World Model 학습·추론',
+    role: '팀장 · World Model 학습·추론',
     ownership: '학습·추론 및 재현 파이프라인',
     team: '3인 팀',
     rank: '2026 인하 인공지능 챌린지 우수상',

@@ -687,14 +687,14 @@ body { font-size: 15px; letter-spacing: -.012em; }
 .about-profile-records .simple-record-list > div { padding: 12px 0; }
 .about-profile-records .simple-record-list b { font-size: 11px; line-height: 1.45; }
 .about-profile-records .simple-record-list p { font-size: 10px; line-height: 1.5; }
-.about-profile-records .award-record-list > div { grid-template-columns: 34px minmax(0, 1fr); gap: 5px 10px; align-items: start; }
-.about-profile-records .award-record-list p { grid-column: 2; text-align: left; }
+.about-profile-records .dated-record-list > div { grid-template-columns: 68px minmax(0, 1fr); gap: 5px 10px; align-items: start; }
+.about-profile-records .dated-record-list p { grid-column: 2; text-align: left; }
 .simple-record-list { border-top: 1px solid var(--ink); }
 .simple-record-list > div { display: grid; grid-template-columns: 1fr auto; gap: 16px; padding: 15px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
 .simple-record-list b { font-size: 13px; }
 .simple-record-list p { margin: 0; color: var(--muted); font-size: 12px; text-align: right; }
-.award-record-list > div { grid-template-columns: 46px 1fr auto; }
-.award-record-list time { color: var(--muted); font: 500 8px 'IBM Plex Mono', monospace; }
+.dated-record-list > div { grid-template-columns: 68px 1fr auto; }
+.dated-record-list time { color: var(--muted); font: 500 8px/1.5 'IBM Plex Mono', monospace; white-space: nowrap; }
 
 @media (max-width: 900px) {
   .projects-intro { grid-template-columns: 1fr; gap: 40px; }
@@ -760,8 +760,8 @@ body { font-size: 15px; letter-spacing: -.012em; }
   .about-record-columns { gap: 72px; margin-top: 78px; }
   .about-profile-records { gap: 42px; margin-top: 34px; }
   .about-profile-records .about-record-section + .about-record-section { margin-top: 0; }
-  .award-record-list > div { grid-template-columns: 40px 1fr; }
-  .award-record-list p { grid-column: 2; text-align: left; }
+  .dated-record-list > div { grid-template-columns: 64px 1fr; }
+  .dated-record-list p { grid-column: 2; text-align: left; }
 }
 
 /* v9 · project depth, activities, profile image */
