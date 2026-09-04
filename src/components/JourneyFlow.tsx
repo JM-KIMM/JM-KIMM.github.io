@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { journeyChapters } from '../data/journey'
 
 export default function JourneyFlow({ compact = false }: { compact?: boolean }) {
@@ -14,14 +13,9 @@ export default function JourneyFlow({ compact = false }: { compact?: boolean }) 
             <small>{chapter.stage}</small>
             <h3>{chapter.title}</h3>
             <p>{chapter.body}</p>
-            {chapter.links.length > 0 && (
-              <div className="journey-links">
-                {chapter.links.map((link) => <Link to={link.path} key={`${chapter.stage}-${link.label}`}>{link.label} ↗</Link>)}
-              </div>
-            )}
           </div>
           <div className="journey-handoff">
-            <small>NEXT HANDOFF</small>
+            <small>{index === journeyChapters.length - 1 ? 'CURRENT FOCUS' : 'NEXT HANDOFF'}</small>
             <p>{chapter.handoff}</p>
           </div>
         </article>

@@ -15,7 +15,6 @@ export default function ProjectPage() {
     return <div className="page page-pad">프로젝트를 찾을 수 없습니다.</div>
   }
 
-  const nextProject = projects[(projectIndex + 1) % projects.length]
   const previewSrc = project.previewImage ? assetUrl(project.previewImage) : undefined
 
   return (
@@ -55,19 +54,12 @@ export default function ProjectPage() {
           <p>{caseStudy.ownershipNote}</p>
         </div>
 
-        <nav className="case-index" aria-label="프로젝트 상세 목차">
-          <a href="#brief">01 · Brief</a>
-          <a href="#decisions">02 · Decisions</a>
-          <a href="#system">03 · System</a>
-          <a href="#evidence">04 · Evidence</a>
-          <a href="#validation">05 · Validation</a>
-        </nav>
       </header>
 
       <section className="case-brief page-pad" id="brief">
         <div className="case-section-heading">
           <span>01</span>
-          <div><p className="eyebrow">CASE BRIEF</p><h2>30초 요약</h2></div>
+          <div><p className="eyebrow">CASE BRIEF</p><h2>프로젝트 요약</h2></div>
         </div>
 
         <div className="case-brief-grid">
@@ -218,32 +210,6 @@ export default function ProjectPage() {
         </section>
       )}
 
-      <section className="case-resources page-pad">
-        <div className="case-section-heading">
-          <span>↗</span>
-          <div><p className="eyebrow">RESOURCES</p><h2>코드와 원문</h2></div>
-        </div>
-        <div className="case-resource-list">
-          {caseStudy.resources.map((resource) => (
-            <a
-              href={resource.external ? resource.url : assetUrl(resource.url)}
-              key={resource.title}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <small>{resource.label}</small>
-              <b>{resource.title}</b>
-              <span>↗</span>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      <Link className="case-next page-pad" to={`/projects/${nextProject.slug}`}>
-        <small>NEXT PROJECT · {String(((projectIndex + 1) % projects.length) + 1).padStart(2, '0')}</small>
-        <strong>{nextProject.shortTitle}</strong>
-        <span>→</span>
-      </Link>
     </article>
   )
 }

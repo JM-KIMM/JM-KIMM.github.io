@@ -39,29 +39,29 @@ export default function AboutPage() {
             <div><small>EDUCATION</small><b>인하대학교 인공지능공학과</b></div>
             <div><small>CURRENT · 2026.09.01 —</small><b>행정안전부 인턴</b><span>RAG · MCP 구축</span></div>
           </div>
+
+          <div className="about-record-columns about-profile-records">
+            <section className="about-record-section compact-record">
+              <header><span>01</span><div><p className="eyebrow">EDUCATION</p><h2>Education</h2></div></header>
+              <div className="simple-record-list">
+                {education.map(([name, detail]) => <div key={name}><b>{name}</b><p>{detail}</p></div>)}
+              </div>
+            </section>
+
+            <section className="about-record-section compact-record">
+              <header><span>02</span><div><p className="eyebrow">AWARDS</p><h2>Awards</h2></div></header>
+              <div className="simple-record-list award-record-list">
+                {awards.map(([year, name, result]) => <div key={name}><time>{year}</time><b>{name}</b><p>{result}</p></div>)}
+              </div>
+            </section>
+          </div>
         </div>
       </div>
 
       <section className="about-record-section about-journey-section">
-        <header><span>01</span><div><p className="eyebrow">STORYLINE</p><h2>How each step connected</h2></div></header>
+        <header><span>03</span><div><p className="eyebrow">STORYLINE</p><h2>How each step connected</h2></div></header>
         <JourneyFlow />
       </section>
-
-      <div className="about-record-columns">
-        <section className="about-record-section compact-record">
-          <header><span>02</span><div><p className="eyebrow">EDUCATION</p><h2>Education</h2></div></header>
-          <div className="simple-record-list">
-            {education.map(([name, detail]) => <div key={name}><b>{name}</b><p>{detail}</p></div>)}
-          </div>
-        </section>
-
-        <section className="about-record-section compact-record">
-          <header><span>03</span><div><p className="eyebrow">AWARDS</p><h2>Awards</h2></div></header>
-          <div className="simple-record-list award-record-list">
-            {awards.map(([year, name, result]) => <div key={name}><time>{year}</time><b>{name}</b><p>{result}</p></div>)}
-          </div>
-        </section>
-      </div>
     </section>
   )
 }
