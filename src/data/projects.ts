@@ -25,7 +25,7 @@ export type Project = {
 
 const projectEntries: Project[] = [
   {
-    sortKey: '2026-07-16',
+    sortKey: '2026-08-20',
     slug: 'inha-world-model',
     type: 'Project',
     title: '로봇 미래 행동 영상 생성 · World Model',
@@ -67,7 +67,7 @@ const projectEntries: Project[] = [
     hasImplementation: true,
   },
   {
-    sortKey: '2025-07-14',
+    sortKey: '2025-09-30',
     slug: 'financial-rag',
     type: 'Project',
     title: '금융보안 RAG · BGE 리랭커 기반 질의응답',
@@ -88,7 +88,7 @@ const projectEntries: Project[] = [
     hasImplementation: true,
   },
   {
-    sortKey: '2026-03-01',
+    sortKey: '2026-06-30',
     slug: 'visionchef',
     type: 'Project',
     title: 'VisionChef · Interactive Cooking Copilot',
@@ -110,7 +110,7 @@ const projectEntries: Project[] = [
     hasImplementation: true,
   },
   {
-    sortKey: '2025-06-01',
+    sortKey: '2026-03-31',
     slug: 'undergraduate-research-smishing',
     type: 'Research',
     title: '한국어 스미싱 탐지 연구',
@@ -130,7 +130,7 @@ const projectEntries: Project[] = [
     hasImplementation: false,
   },
   {
-    sortKey: '2026-03-01',
+    sortKey: '2026-05-31',
     slug: 'seongnam-xai',
     type: 'Project',
     title: '성남 생활상권 성장 잠재력 대시보드 · XAI',
@@ -150,7 +150,7 @@ const projectEntries: Project[] = [
     hasImplementation: true,
   },
   {
-    sortKey: '2025-02-01',
+    sortKey: '2025-03-31',
     slug: 'hansol-2pass',
     type: 'Project',
     title: '건설 안전 대응 생성 RAG',
@@ -171,6 +171,6 @@ const projectEntries: Project[] = [
   },
 ]
 
-export const projects = [...projectEntries].sort((a, b) => a.sortKey.localeCompare(b.sortKey))
+export const projects = [...projectEntries].sort((a, b) => b.sortKey.localeCompare(a.sortKey))
 export const portfolioProjects = projects
 export const codeProjects = portfolioProjects

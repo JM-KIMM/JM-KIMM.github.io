@@ -16,8 +16,9 @@ export default function ProjectCarousel({ projects }: { projects: Project[] }) {
   const isDraggingRef = useRef(false)
   const suppressClickUntilRef = useRef(0)
   const [active, setActive] = useState(() => {
-    const saved = Number(window.sessionStorage.getItem(storageKey))
-    return Number.isInteger(saved) ? clamp(saved, 0, Math.max(0, projects.length - 1)) : 0
+    const savedSlug = window.sessionStorage.getItem(storageKey)
+    const savedIndex = projects.findIndex((project) => project.slug === savedSlug)
+    return savedIndex >= 0 ? savedIndex : 0
   })
   const currentIndexRef = useRef(active)
 
@@ -25,8 +26,9 @@ export default function ProjectCarousel({ projects }: { projects: Project[] }) {
     const next = clamp(index, 0, Math.max(0, projects.length - 1))
     currentIndexRef.current = next
     setActive(next)
-    window.sessionStorage.setItem(storageKey, String(next))
-  }, [projects.length, storageKey])
+    const project = projects[next]
+    if (project) window.sessionStorage.setItem(storageKey, project.slug)
+  }, [projects, storageKey])
 
   const scrollToIndex = useCallback((index: number, behavior: ScrollBehavior = 'smooth') => {
     const track = trackRef.current
