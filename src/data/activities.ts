@@ -85,6 +85,7 @@ export const learningActivities: Activity[] = [
     ],
     purpose: '첫 참여에서 익힌 운영 경험을 팀원의 관점에서 다시 적용하고, 설명과 피드백 중심의 학습 방식을 보강하고자 했습니다.',
     carriedForward: '다른 사람의 접근을 비교하고 피드백하는 경험이 이후 팀 프로젝트에서 실험 결과를 함께 검토하는 방식으로 이어졌습니다.',
+    result: '우수상',
     url: 'https://ctlt.inha.ac.kr/',
   },
   {
@@ -100,7 +101,7 @@ export const learningActivities: Activity[] = [
     ],
     purpose: '혼자 공부할 때 빠지기 쉬운 설명 부족과 기록 누락을 보완하고, 팀의 학습 과정을 직접 운영하고자 했습니다.',
     carriedForward: '목표·역할·회고를 문서화한 경험을 다음 학기 인하-동동과 이후 팀 프로젝트 운영에 적용했습니다.',
-    result: '우수상',
+    result: '팀원 전원 A+',
     url: 'https://ctlt.inha.ac.kr/',
   },
 ]
