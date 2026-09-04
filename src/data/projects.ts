@@ -1,6 +1,7 @@
 export type WorkType = 'Research' | 'Project'
 
 export type Project = {
+  sortKey: string
   slug: string
   type: WorkType
   title: string
@@ -22,8 +23,9 @@ export type Project = {
   hasImplementation: boolean
 }
 
-export const projects: Project[] = [
+const projectEntries: Project[] = [
   {
+    sortKey: '2026-07-16',
     slug: 'inha-world-model',
     type: 'Project',
     title: '로봇 미래 행동 영상 생성 · World Model',
@@ -44,6 +46,7 @@ export const projects: Project[] = [
     hasImplementation: true,
   },
   {
+    sortKey: '2026-06-22',
     slug: 'cj-logistics-3d-box',
     type: 'Project',
     title: 'CJ대한통운 · CCTV 기반 박스 수량 및 3D 크기 추정',
@@ -64,6 +67,7 @@ export const projects: Project[] = [
     hasImplementation: true,
   },
   {
+    sortKey: '2025-07-14',
     slug: 'financial-rag',
     type: 'Project',
     title: '금융보안 RAG · BGE 리랭커 기반 질의응답',
@@ -84,6 +88,7 @@ export const projects: Project[] = [
     hasImplementation: true,
   },
   {
+    sortKey: '2026-03-01',
     slug: 'visionchef',
     type: 'Project',
     title: 'VisionChef · Interactive Cooking Copilot',
@@ -105,6 +110,7 @@ export const projects: Project[] = [
     hasImplementation: true,
   },
   {
+    sortKey: '2025-06-01',
     slug: 'undergraduate-research-smishing',
     type: 'Research',
     title: '한국어 스미싱 탐지 연구',
@@ -124,6 +130,7 @@ export const projects: Project[] = [
     hasImplementation: false,
   },
   {
+    sortKey: '2026-03-01',
     slug: 'seongnam-xai',
     type: 'Project',
     title: '성남 생활상권 성장 잠재력 대시보드 · XAI',
@@ -143,6 +150,7 @@ export const projects: Project[] = [
     hasImplementation: true,
   },
   {
+    sortKey: '2025-02-01',
     slug: 'hansol-2pass',
     type: 'Project',
     title: '건설 안전 대응 생성 RAG',
@@ -163,5 +171,6 @@ export const projects: Project[] = [
   },
 ]
 
+export const projects = [...projectEntries].sort((a, b) => a.sortKey.localeCompare(b.sortKey))
 export const portfolioProjects = projects
 export const codeProjects = portfolioProjects

@@ -1,4 +1,5 @@
 export type Activity = {
+  sortKey: string
   title: string
   subtitle: string
   period: string
@@ -13,6 +14,7 @@ export type Activity = {
 
 export const learningActivities: Activity[] = [
   {
+    sortKey: '2026-06-22',
     title: 'LG Aimers 9기',
     subtitle: 'LG AI연구원 청년 AI 인재 교육 프로그램',
     period: '2026.06.22 — 09.02',
@@ -28,6 +30,7 @@ export const learningActivities: Activity[] = [
     url: 'https://www.lgaimers.ai/',
   },
   {
+    sortKey: '2026-01-01',
     title: 'LG Aimers 8기',
     subtitle: 'LG AI연구원 청년 AI 인재 교육 프로그램',
     period: '2026 · 8기',
@@ -43,6 +46,7 @@ export const learningActivities: Activity[] = [
     url: 'https://www.lgresearch.ai/news/view?seq=638',
   },
   {
+    sortKey: '2026-02-23',
     title: '제6회 Smart Semiconductor Academy',
     subtitle: '생성형 AI, 반도체 AI 응용기술',
     period: '2026.02.23 — 02.24',
@@ -58,9 +62,10 @@ export const learningActivities: Activity[] = [
     url: 'https://ssakorea.kr/sub/conference/history',
   },
   {
+    sortKey: '2025-06-22',
     title: 'INHA 코드트리 코딩 캠프',
     subtitle: '인하대학교 SW중심대학사업단 코딩테스트 대비 전문 교육과정',
-    period: '2025 · 수료',
+    period: '2025.06.22 — 07.06',
     role: '교육생',
     summary: '자료구조와 알고리즘을 문제 유형별로 반복하며 구현 정확도와 풀이 속도를 함께 높이는 훈련을 진행했습니다.',
     points: [
@@ -73,6 +78,7 @@ export const learningActivities: Activity[] = [
     url: 'https://www.codetree.ai/blog/ko/%EC%BD%94%EB%93%9C%ED%8A%B8%EB%A6%AC-%EC%9D%B8%ED%95%98%EB%8C%80-%EC%BD%94%EB%94%A9-%EC%BA%A0%ED%94%84-%EC%84%B1%EB%A3%8C2%EC%A3%BC%EA%B0%84-%EC%BD%94%EC%9D%B5-%EC%A0%90%EC%88%98-%ED%8F%89',
   },
   {
+    sortKey: '2025-03-01',
     title: '인하-동동(同動) · 2025-1',
     subtitle: '인하대학교 교수학습개발센터 학습공동체 프로그램',
     period: '2025-1',
@@ -89,6 +95,7 @@ export const learningActivities: Activity[] = [
     url: 'https://ctlt.inha.ac.kr/',
   },
   {
+    sortKey: '2024-09-01',
     title: '인하-동동(同動) · 2024-2',
     subtitle: '인하대학교 교수학습개발센터 학습공동체 프로그램',
     period: '2024-2',
@@ -108,6 +115,7 @@ export const learningActivities: Activity[] = [
 
 export const competitionActivities: Activity[] = [
   {
+    sortKey: '2026-07-16',
     title: '2026 인하 인공지능 챌린지',
     subtitle: '로봇 미래 행동 영상 생성 · World Model Challenge',
     period: '2026.07 — 08',
@@ -120,6 +128,7 @@ export const competitionActivities: Activity[] = [
     url: 'https://dacon.io/competitions/official/236736/overview/description',
   },
   {
+    sortKey: '2026-06-22',
     title: 'CJ대한통운 미래기술챌린지 2026',
     subtitle: 'CCTV 영상 기반 화물 객체 분석',
     period: '2026.06 — 07',
@@ -132,6 +141,7 @@ export const competitionActivities: Activity[] = [
     url: 'https://www.cjlogistics.com/ko/newsroom/news/NR_00001351',
   },
   {
+    sortKey: '2025-07-14',
     title: '2025 금융 AI Challenge : 금융 AI 모델 경쟁',
     subtitle: '금융 분야 생성형 AI 모델 성능 경진',
     period: '2025.07 — 09',
@@ -144,9 +154,10 @@ export const competitionActivities: Activity[] = [
     url: 'https://www.dacon.io/competitions/official/236527/overview/description',
   },
   {
+    sortKey: '2025-07-01',
     title: '2025 SW중심대학 디지털 경진대회',
     subtitle: 'AI부문 · 생성형 AI(LLM)와 인간: 텍스트 판별 챌린지',
-    period: '2025',
+    period: '2025.07.01 — 08.12',
     role: '팀장',
     summary: '생성형 AI 텍스트와 인간 작성 텍스트를 구분하는 문제에서 데이터 분석과 검증 구조를 팀 단위로 운영했습니다.',
     points: ['텍스트 분포와 오류 사례 분석', '모델 검증 기준 정리', '팀 실험 일정과 제출 관리'],
@@ -156,6 +167,7 @@ export const competitionActivities: Activity[] = [
     url: 'https://www.swuniv.kr/60/?bmode=view&idx=142839360',
   },
   {
+    sortKey: '2025-02-01',
     title: '한솔데코 시즌3 생성 AI 경진대회',
     subtitle: '건설공사 사고 예방 및 대응책 생성',
     period: '2025.02 — 03',
@@ -168,6 +180,7 @@ export const competitionActivities: Activity[] = [
     url: 'https://dacon.io/competitions/official/236455/overview/description',
   },
   {
+    sortKey: '2026-03-01',
     title: '2026 성남시 공공데이터 활용 시각화 경진대회',
     subtitle: '성남시 생활상권 성장 잠재력 분석 및 XAI',
     period: '2026.03 — 05',
