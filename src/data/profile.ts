@@ -19,7 +19,7 @@ export const careerFlow = [
   },
   {
     period: '2026.09.01 —',
-    stage: 'NEXT',
+    stage: 'FIELD',
     title: '행정안전부 인턴',
     role: 'RAG · MCP 구축',
   },

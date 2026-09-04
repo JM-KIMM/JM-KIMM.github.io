@@ -158,7 +158,7 @@ export default function ProjectPage() {
       <section className="case-evidence page-pad" id="evidence">
         <div className="case-section-heading">
           <span>04</span>
-          <div><p className="eyebrow">PRIMARY EVIDENCE</p><h2>자료로 확인한 구현</h2></div>
+          <div><p className="eyebrow">IMPLEMENTATION DETAILS</p><h2>세부 구현 내용</h2></div>
         </div>
 
         <div className="case-evidence-list">

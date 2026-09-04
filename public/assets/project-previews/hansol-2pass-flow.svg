@@ -1,56 +1,66 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
-  <title id="title">Construction safety generation implementation boundary</title>
-  <desc id="desc">유사 QA 검색과 VARCO 초안은 구현됐고 Qwen 검수는 로더만 준비된 현재 실행 경계</desc>
+  <title id="title">Construction safety two-LLM context compression</title>
+  <desc id="desc">유사 QA 검색 결과를 VARCO가 핵심 근거로 압축하고 Qwen이 최종 안전 대응책을 생성하는 연결 구조</desc>
   <rect width="1600" height="900" fill="#e8e9e4"/>
   <rect x="58" y="58" width="1484" height="784" rx="28" fill="#242725"/>
   <path d="M106 142h1388" stroke="#474b48"/>
-  <text x="106" y="112" fill="#aab0aa" font-family="Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="3">CONSTRUCTION SAFETY · IMPLEMENTATION BOUNDARY</text>
-  <text x="1494" y="112" text-anchor="end" fill="#aab0aa" font-family="Arial, sans-serif" font-size="17">IMPLEMENTED → PREPARED</text>
-  <g transform="translate(108 250)">
+  <text x="106" y="112" fill="#aab0aa" font-family="Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="3">CONSTRUCTION SAFETY · TWO-LLM CONTEXT FLOW</text>
+  <text x="1494" y="112" text-anchor="end" fill="#bfcc60" font-family="Arial, sans-serif" font-size="17">RETRIEVE → COMPRESS → GENERATE</text>
+
+  <g transform="translate(92 232)">
     <text fill="#7f8a82" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">INPUT</text>
-    <text y="53" fill="#f4f4ee" font-family="Arial, sans-serif" font-size="31" font-weight="700">사고 문맥</text>
-    <rect y="91" width="230" height="132" rx="16" fill="#303431" stroke="#59605a"/>
-    <path d="M24 124h144M24 151h180M24 178h122" stroke="#9aa19b" stroke-width="7" stroke-linecap="round"/>
-    <rect x="160" y="187" width="48" height="16" rx="8" fill="#bfcc60"/>
+    <text y="52" fill="#f4f4ee" font-family="Arial, sans-serif" font-size="29" font-weight="700">사고 문맥</text>
+    <rect y="88" width="205" height="140" rx="16" fill="#303431" stroke="#59605a"/>
+    <path d="M24 122h132M24 150h158M24 178h114" stroke="#9aa19b" stroke-width="7" stroke-linecap="round"/>
+    <text x="24" y="211" fill="#bfcc60" font-family="Arial, sans-serif" font-size="13">CAUSE · PROCESS</text>
   </g>
-  <path d="M367 423h98" stroke="#777e77" stroke-width="2"/>
-  <path d="m455 414 11 9-11 9" fill="none" stroke="#777e77" stroke-width="2"/>
-  <g transform="translate(486 220)">
-    <rect width="264" height="410" rx="24" fill="#303431" stroke="#59605a"/>
-    <text x="28" y="48" fill="#9ba39d" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">01 · RETRIEVE</text>
-    <circle cx="132" cy="151" r="61" fill="#3b403c" stroke="#bfcc60" stroke-width="2"/>
-    <path d="M103 144h58M103 167h42" stroke="#bfcc60" stroke-width="8" stroke-linecap="round"/>
-    <text x="28" y="258" fill="#f4f4ee" font-family="Arial, sans-serif" font-size="28" font-weight="700">FAISS</text>
-    <text x="28" y="302" fill="#aeb4ae" font-family="Arial, sans-serif" font-size="18">train QA에서</text>
-    <text x="28" y="332" fill="#aeb4ae" font-family="Arial, sans-serif" font-size="18">유사 사례 Top 3</text>
-    <text x="28" y="374" fill="#bfcc60" font-family="Arial, sans-serif" font-size="14" font-weight="700">GROUND THE DRAFT</text>
+
+  <path d="M318 422h55" stroke="#777e77" stroke-width="2"/>
+  <path d="m363 413 11 9-11 9" fill="none" stroke="#777e77" stroke-width="2"/>
+
+  <g transform="translate(394 205)">
+    <rect width="258" height="430" rx="24" fill="#303431" stroke="#59605a"/>
+    <text x="27" y="48" fill="#9ba39d" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">01 · RETRIEVE</text>
+    <circle cx="129" cy="146" r="55" fill="#3b403c" stroke="#bfcc60" stroke-width="2"/>
+    <path d="M101 138h56M101 161h40" stroke="#bfcc60" stroke-width="8" stroke-linecap="round"/>
+    <text x="27" y="247" fill="#f4f4ee" font-family="Arial, sans-serif" font-size="31" font-weight="700">FAISS</text>
+    <text x="27" y="291" fill="#aeb4ae" font-family="Arial, sans-serif" font-size="18">과거 유사 사고</text>
+    <text x="27" y="322" fill="#aeb4ae" font-family="Arial, sans-serif" font-size="18">QA Top 3</text>
+    <text x="27" y="391" fill="#bfcc60" font-family="Arial, sans-serif" font-size="14" font-weight="700">REDUCE SEARCH SPACE</text>
   </g>
-  <path d="M771 423h78" stroke="#777e77" stroke-width="2"/>
-  <path d="m839 414 11 9-11 9" fill="none" stroke="#777e77" stroke-width="2"/>
-  <g transform="translate(870 220)">
-    <rect width="264" height="410" rx="24" fill="#bfcc60"/>
-    <text x="28" y="48" fill="#485025" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">02 · DRAFT</text>
-    <text x="28" y="121" fill="#1e211e" font-family="Arial, sans-serif" font-size="37" font-weight="700">VARCO 8B</text>
-    <text x="28" y="169" fill="#3b4222" font-family="Arial, sans-serif" font-size="18">필요한 대응책을</text>
-    <text x="28" y="199" fill="#3b4222" font-family="Arial, sans-serif" font-size="18">빠짐없이 초안화</text>
-    <path d="M28 264h178M28 292h204M28 320h138" stroke="#626c35" stroke-width="8" stroke-linecap="round" opacity=".72"/>
-    <text x="28" y="374" fill="#30351f" font-family="Arial, sans-serif" font-size="14" font-weight="700">OPTIMIZE FOR RECALL</text>
+
+  <path d="M673 422h55" stroke="#777e77" stroke-width="2"/>
+  <path d="m718 413 11 9-11 9" fill="none" stroke="#777e77" stroke-width="2"/>
+
+  <g transform="translate(749 205)">
+    <rect width="298" height="430" rx="24" fill="#bfcc60"/>
+    <text x="28" y="48" fill="#485025" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">02 · CONTEXT PASS</text>
+    <text x="28" y="119" fill="#1e211e" font-family="Arial, sans-serif" font-size="37" font-weight="700">VARCO 8B</text>
+    <text x="28" y="167" fill="#3b4222" font-family="Arial, sans-serif" font-size="18">원인·대책을 남기고</text>
+    <text x="28" y="198" fill="#3b4222" font-family="Arial, sans-serif" font-size="18">반복 문맥을 압축</text>
+    <path d="M28 256h218M28 286h165M28 316h116" stroke="#626c35" stroke-width="8" stroke-linecap="round" opacity=".72"/>
+    <path d="M198 278h55" stroke="#30351f" stroke-width="2"/>
+    <path d="m243 269 11 9-11 9" fill="none" stroke="#30351f" stroke-width="2"/>
+    <text x="28" y="391" fill="#30351f" font-family="Arial, sans-serif" font-size="14" font-weight="700">TASK-AWARE COMPRESSION</text>
   </g>
-  <path d="M1155 423h78" stroke="#777e77" stroke-width="2" stroke-dasharray="9 8"/>
-  <path d="m1223 414 11 9-11 9" fill="none" stroke="#777e77" stroke-width="2"/>
-  <g transform="translate(1254 220)">
-    <rect width="240" height="410" rx="24" fill="#303431" stroke="#aab0aa" stroke-width="2" stroke-dasharray="12 9"/>
-    <text x="28" y="48" fill="#aab0aa" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">03 · PREPARED</text>
-    <text x="28" y="121" fill="#f2f2ec" font-family="Arial, sans-serif" font-size="35" font-weight="700">QWEN 14B</text>
-    <text x="28" y="169" fill="#aeb4ae" font-family="Arial, sans-serif" font-size="18">8-bit 로더 구현</text>
-    <text x="28" y="199" fill="#aeb4ae" font-family="Arial, sans-serif" font-size="18">main.py에는 미연결</text>
-    <circle cx="54" cy="279" r="17" fill="none" stroke="#657136" stroke-width="3"/>
-    <path d="m46 279 6 7 13-17" fill="none" stroke="#657136" stroke-width="3"/>
-    <path d="M83 279h112M28 320h167" stroke="#9aa19b" stroke-width="7" stroke-linecap="round"/>
-    <text x="28" y="374" fill="#bfcc60" font-family="Arial, sans-serif" font-size="14" font-weight="700">LOADER ONLY · NOT WIRED</text>
+
+  <path d="M1068 422h55" stroke="#777e77" stroke-width="2"/>
+  <path d="m1113 413 11 9-11 9" fill="none" stroke="#777e77" stroke-width="2"/>
+
+  <g transform="translate(1144 205)">
+    <rect width="350" height="430" rx="24" fill="#303431" stroke="#bfcc60" stroke-width="2"/>
+    <text x="28" y="48" fill="#aab0aa" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">03 · ANSWER PASS</text>
+    <text x="28" y="119" fill="#f2f2ec" font-family="Arial, sans-serif" font-size="36" font-weight="700">QWEN 14B</text>
+    <text x="28" y="167" fill="#aeb4ae" font-family="Arial, sans-serif" font-size="18">압축 근거로 최종</text>
+    <text x="28" y="198" fill="#aeb4ae" font-family="Arial, sans-serif" font-size="18">안전 대응책 생성</text>
+    <circle cx="54" cy="282" r="17" fill="none" stroke="#bfcc60" stroke-width="3"/>
+    <path d="m46 282 6 7 13-17" fill="none" stroke="#bfcc60" stroke-width="3"/>
+    <path d="M83 282h200M28 323h255" stroke="#9aa19b" stroke-width="7" stroke-linecap="round"/>
+    <text x="28" y="391" fill="#bfcc60" font-family="Arial, sans-serif" font-size="14" font-weight="700">FINAL FORMAT · INT8</text>
   </g>
-  <g transform="translate(108 714)">
-    <text fill="#f1f1ec" font-family="Arial, sans-serif" font-size="24" font-weight="700">공개 실행 경로와 다음 통합 단계를 같은 그림에서 구분했습니다.</text>
-    <text y="45" fill="#929a93" font-family="Arial, sans-serif" font-size="16">QA RETRIEVAL · VARCO DRAFT · QWEN LOADER · INTEGRATION GAP</text>
+
+  <g transform="translate(108 723)">
+    <text fill="#f1f1ec" font-family="Arial, sans-serif" font-size="24" font-weight="700">제한된 토큰을 반복 문장보다 핵심 안전 정보에 사용했습니다.</text>
+    <text y="45" fill="#929a93" font-family="Arial, sans-serif" font-size="16">QA RETRIEVAL · TASK-AWARE SUMMARY · CONTEXT HANDOFF · FINAL ANSWER</text>
   </g>
 </svg>

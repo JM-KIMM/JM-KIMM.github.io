@@ -2,13 +2,14 @@ import JourneyFlow from '../components/JourneyFlow'
 
 const education = [
   ['인하대학교', '인공지능공학과'],
-  ['LG Aimers 9기', 'AI Essential Course · LG AI 해커톤'],
+  ['LG Aimers 9기', 'AI Essential Course 이수 · LG AI 해커톤 완료'],
   ['LG Aimers 8기', 'LG AI연구원 청년 AI 인재 교육 프로그램 수료'],
   ['제6회 Smart Semiconductor Academy', '생성형 AI, 반도체 AI 응용기술 과정 수료'],
   ['INHA 코드트리 코딩 캠프', '코딩테스트 대비 전문 교육과정 수료'],
 ]
 
 const awards = [
+  ['2026', '2026 인하 인공지능 챌린지', '우수상 · 팀 리더'],
   ['2026', 'CJ대한통운 미래기술챌린지 2026', '최종 리더보드 4위'],
   ['2026', '인공지능 종합설계', '장려상'],
   ['2025', '2025 금융 AI Challenge : 금융 AI 모델 경쟁', 'Private 6위 / 283팀 · 팀장'],
@@ -35,8 +36,8 @@ export default function AboutPage() {
         <div className="about-main-copy">
           <p className="eyebrow">ABOUT ME</p>
           <div className="about-status">
-            <div><small>CURRENT</small><b>인하대학교 인공지능공학과</b></div>
-            <div><small>UPCOMING · 2026.09.01</small><b>행정안전부 인턴</b><span>RAG · MCP 구축</span></div>
+            <div><small>EDUCATION</small><b>인하대학교 인공지능공학과</b></div>
+            <div><small>CURRENT · 2026.09.01 —</small><b>행정안전부 인턴</b><span>RAG · MCP 구축</span></div>
           </div>
         </div>
       </div>

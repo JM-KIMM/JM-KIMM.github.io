@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">INHA World Model action-conditioned generation pipeline</title>
+  <desc id="desc">초기 로봇 이미지와 16단계 6축 action이 네 잠재 시점으로 압축되어 Cosmos LoRA 월드 모델에서 16프레임 액션 조건부 영상으로 생성되는 구조</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#151b2b"/>
+      <stop offset="1" stop-color="#242047"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#8de3ff"/>
+      <stop offset="1" stop-color="#9b8cff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#080b14" flood-opacity=".35"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="#eef0f7"/>
+  <rect x="58" y="58" width="1484" height="784" rx="30" fill="url(#bg)"/>
+  <path d="M104 145h1392" stroke="#49506b" stroke-opacity=".65"/>
+  <text x="104" y="113" fill="#aab3d3" font-family="Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="3">2026 INHA AI CHALLENGE · ACTION-CONDITIONED WORLD MODEL</text>
+  <text x="1496" y="113" text-anchor="end" fill="#8de3ff" font-family="Arial, sans-serif" font-size="17">INITIAL STATE → FUTURE STATE</text>
+
+  <g transform="translate(104 215)" filter="url(#shadow)">
+    <rect width="260" height="422" rx="24" fill="#222a40" stroke="#4d5778"/>
+    <text x="26" y="44" fill="#8de3ff" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">01 · CONDITIONS</text>
+    <rect x="26" y="76" width="208" height="148" rx="15" fill="#d8dce8"/>
+    <rect x="44" y="95" width="172" height="110" rx="10" fill="#aeb7ca"/>
+    <path d="M84 167l29-45 27 24 24-35 31 56" fill="none" stroke="#222a40" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="113" cy="122" r="9" fill="#8de3ff"/>
+    <text x="26" y="261" fill="#f6f7fb" font-family="Arial, sans-serif" font-size="24" font-weight="700">Initial frame × 1</text>
+    <g transform="translate(26 294)">
+      <rect width="208" height="69" rx="12" fill="#171d2d"/>
+      <path d="M18 48l20-23 20 17 19-29 22 32 22-18 22 22 20-31 27 29" fill="none" stroke="url(#accent)" stroke-width="4"/>
+    </g>
+    <text x="26" y="395" fill="#aeb7ce" font-family="Arial, sans-serif" font-size="17">Action sequence 16 × 6</text>
+  </g>
+
+  <path d="M385 427h72" stroke="#68718f" stroke-width="2"/>
+  <path d="m447 417 12 10-12 10" fill="none" stroke="#8de3ff" stroke-width="2"/>
+
+  <g transform="translate(479 215)" filter="url(#shadow)">
+    <rect width="256" height="422" rx="24" fill="#222a40" stroke="#4d5778"/>
+    <text x="26" y="44" fill="#9b8cff" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">02 · ALIGN TIME</text>
+    <text x="26" y="106" fill="#f6f7fb" font-family="Arial, sans-serif" font-size="31" font-weight="700">16 × 6</text>
+    <text x="128" y="106" fill="#76809e" font-family="Arial, sans-serif" font-size="27">→</text>
+    <text x="169" y="106" fill="#8de3ff" font-family="Arial, sans-serif" font-size="31" font-weight="700">4 × 24</text>
+    <g transform="translate(26 145)">
+      <rect width="44" height="151" rx="10" fill="#8de3ff" opacity=".95"/>
+      <rect x="54" width="44" height="151" rx="10" fill="#79cde9"/>
+      <rect x="108" width="44" height="151" rx="10" fill="#8ba9f5"/>
+      <rect x="162" width="44" height="151" rx="10" fill="#9b8cff"/>
+      <path d="M22 31h20M22 64h20M22 97h20M22 130h20M76 31h20M76 64h20M76 97h20M76 130h20M130 31h20M130 64h20M130 97h20M130 130h20M184 31h20M184 64h20M184 97h20M184 130h20" stroke="#172033" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+    </g>
+    <text x="26" y="339" fill="#f6f7fb" font-family="Arial, sans-serif" font-size="20" font-weight="700">4 latent time steps</text>
+    <text x="26" y="374" fill="#aeb7ce" font-family="Arial, sans-serif" font-size="16">timestep + 28× adaLN</text>
+    <text x="26" y="400" fill="#aeb7ce" font-family="Arial, sans-serif" font-size="16">action conditioning</text>
+  </g>
+
+  <path d="M756 427h72" stroke="#68718f" stroke-width="2"/>
+  <path d="m818 417 12 10-12 10" fill="none" stroke="#8de3ff" stroke-width="2"/>
+
+  <g transform="translate(850 190)" filter="url(#shadow)">
+    <rect width="352" height="472" rx="26" fill="url(#accent)"/>
+    <text x="28" y="49" fill="#242044" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">03 · PREDICT</text>
+    <text x="28" y="117" fill="#161a29" font-family="Arial, sans-serif" font-size="38" font-weight="700">Cosmos 2.5 · 2B</text>
+    <text x="28" y="154" fill="#343650" font-family="Arial, sans-serif" font-size="17">FROZEN VIDEO BACKBONE</text>
+    <rect x="28" y="190" width="296" height="82" rx="15" fill="#151b2b" fill-opacity=".9"/>
+    <text x="51" y="224" fill="#f6f7fb" font-family="Arial, sans-serif" font-size="20" font-weight="700">LoRA r32</text>
+    <text x="51" y="252" fill="#b8c4df" font-family="Arial, sans-serif" font-size="15">Attention + MLP · 113.4M trainable</text>
+    <rect x="28" y="291" width="296" height="82" rx="15" fill="#151b2b" fill-opacity=".9"/>
+    <text x="51" y="325" fill="#f6f7fb" font-family="Arial, sans-serif" font-size="20" font-weight="700">Action embedder</text>
+    <text x="51" y="353" fill="#b8c4df" font-family="Arial, sans-serif" font-size="15">6-axis input · temporal injection</text>
+    <text x="28" y="423" fill="#252841" font-family="Arial, sans-serif" font-size="15" font-weight="700">FLOW MATCHING · AUX IDM · DRaFT</text>
+  </g>
+
+  <path d="M1223 427h72" stroke="#68718f" stroke-width="2"/>
+  <path d="m1285 417 12 10-12 10" fill="none" stroke="#8de3ff" stroke-width="2"/>
+
+  <g transform="translate(1317 215)" filter="url(#shadow)">
+    <rect width="179" height="422" rx="24" fill="#222a40" stroke="#4d5778"/>
+    <text x="22" y="44" fill="#8de3ff" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">04 · OUTPUT</text>
+    <g transform="translate(22 78)">
+      <rect width="135" height="70" rx="10" fill="#d9ddea"/>
+      <rect y="86" width="135" height="70" rx="10" fill="#c6cddd"/>
+      <rect y="172" width="135" height="70" rx="10" fill="#adb8d0"/>
+      <path d="M22 124h92M22 210h92" stroke="#6d7a9b" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="37" cy="35" r="12" fill="#9b8cff"/>
+      <circle cx="65" cy="121" r="12" fill="#8ba9f5"/>
+      <circle cx="94" cy="207" r="12" fill="#8de3ff"/>
+    </g>
+    <text x="22" y="354" fill="#f6f7fb" font-family="Arial, sans-serif" font-size="22" font-weight="700">16 frames</text>
+    <text x="22" y="385" fill="#aeb7ce" font-family="Arial, sans-serif" font-size="16">6 fps · 30 steps</text>
+  </g>
+
+  <g transform="translate(104 735)">
+    <text fill="#f5f6fb" font-family="Arial, sans-serif" font-size="24" font-weight="700">현재 상태와 행동 순서로 16프레임 액션 조건부 영상을 생성합니다.</text>
+    <text y="43" fill="#9fa9c9" font-family="Arial, sans-serif" font-size="16">FIRST FRAME ANCHOR · AUTO-GUIDANCE 0.6 · FLOWUNIPC 30 STEPS · LOWER IS BETTER</text>
+  </g>
+</svg>

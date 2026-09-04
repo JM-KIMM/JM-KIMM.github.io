@@ -14,8 +14,8 @@ export default function HomePage() {
           </div>
           <div className="compact-hero-side">
             <div className="profile-status">
-              <div><small>CURRENT</small><b>인하대학교 인공지능공학과</b></div>
-              <div><small>UPCOMING · 2026.09.01</small><b>행정안전부 인턴</b><span>RAG · MCP</span></div>
+              <div><small>EDUCATION</small><b>인하대학교 인공지능공학과</b></div>
+              <div><small>CURRENT · 2026.09.01 —</small><b>행정안전부 인턴</b><span>RAG · MCP</span></div>
             </div>
           </div>
         </div>

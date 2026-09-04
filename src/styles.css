@@ -575,6 +575,7 @@ body { font-size: 15px; letter-spacing: -.012em; }
 .project-card-top i { color: var(--ink); font: 600 9px 'IBM Plex Mono', monospace; letter-spacing: .08em; }
 .project-card-top small { font-size: 9px; }
 .project-card { --preview-bg: #eef1f5; --preview-accent: #607083; --preview-rotate: -.45deg; }
+.project-card[data-project='inha-world-model'] { --preview-bg: #e9eaf4; --preview-accent: #6558d9; --preview-rotate: -.35deg; }
 .project-card[data-project='cj-logistics-3d-box'] { --preview-bg: #e7eef8; --preview-accent: #3279e8; --preview-rotate: -.65deg; }
 .project-card[data-project='financial-rag'] { --preview-bg: #f1eadb; --preview-accent: #b79132; --preview-rotate: .75deg; }
 .project-card[data-project='visionchef'] { --preview-bg: #e8edff; --preview-accent: #315ce8; --preview-rotate: -.35deg; }
@@ -1102,6 +1103,7 @@ body { letter-spacing: -.012em; }
 .project-card-preview-canvas { border-radius: 5px; box-shadow: 0 8px 20px rgba(9,9,9,.08); }
 .project-card-preview img { object-position: center; }
 .project-card[data-project='undergraduate-research-smishing'] .project-card-preview img { object-position: center 55%; }
+.project-card[data-project='inha-world-model'] .project-card-preview img,
 .project-card[data-project='financial-rag'] .project-card-preview img,
 .project-card[data-project='hansol-2pass'] .project-card-preview img { object-fit: contain; }
 .project-card[data-project='visionchef'] .project-card-preview img { object-position: center 48%; }
@@ -1131,6 +1133,7 @@ body { letter-spacing: -.012em; }
 .case-cover { position: relative; margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: var(--soft); }
 .case-cover img { display: block; width: 100%; aspect-ratio: 16 / 7.1; object-fit: cover; }
 .case-page[data-project='undergraduate-research-smishing'] .case-cover img { object-position: center 58%; }
+.case-page[data-project='inha-world-model'] .case-cover img,
 .case-page[data-project='financial-rag'] .case-cover img,
 .case-page[data-project='hansol-2pass'] .case-cover img { object-fit: contain; }
 .case-page[data-project='visionchef'] .case-cover img { object-position: center 50%; }

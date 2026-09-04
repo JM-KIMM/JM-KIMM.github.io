@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">INHA World Model experiment summary</title>
+  <desc id="desc">정지영상 기준선부터 Public 점수까지의 개선, Private 점수, 학습 중단 시점과 수상 모델 확정 뒤 OOD 사후 분석을 구분한 실험 요약</desc>
+  <defs>
+    <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#8de3ff"/><stop offset="1" stop-color="#9b8cff"/></linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="#f2f3f7"/>
+  <rect x="58" y="58" width="1484" height="784" rx="28" fill="#fbfbfd" stroke="#cfd3df"/>
+  <text x="104" y="116" fill="#242a3b" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="3">EXPERIMENT SUMMARY · LOWER IS BETTER</text>
+  <text x="1496" y="116" text-anchor="end" fill="#6c7389" font-family="Arial, sans-serif" font-size="16">PUBLIC ≠ PRIVATE</text>
+  <path d="M104 150h1392" stroke="#d9dce5"/>
+
+  <g transform="translate(104 205)">
+    <text fill="#242a3b" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2">SCORE PATH</text>
+    <text y="58" fill="#1c2232" font-family="Arial, sans-serif" font-size="29" font-weight="700">정지영상에서 행동 조건부 생성으로</text>
+    <g transform="translate(0 108)">
+      <text y="20" fill="#667087" font-family="Arial, sans-serif" font-size="17">Static-frame baseline</text>
+      <text x="304" y="20" fill="#30384d" font-family="Arial, sans-serif" font-size="24" font-weight="700">0.3032</text>
+      <rect y="43" width="480" height="32" rx="16" fill="#d9dce5"/>
+      <text y="132" fill="#667087" font-family="Arial, sans-serif" font-size="17">Public best</text>
+      <text x="304" y="132" fill="#5e54cb" font-family="Arial, sans-serif" font-size="24" font-weight="700">0.187244</text>
+      <rect y="155" width="296" height="32" rx="16" fill="url(#bar)"/>
+      <text x="323" y="181" fill="#5e54cb" font-family="Arial, sans-serif" font-size="17" font-weight="700">−38%</text>
+      <path d="M0 224h480" stroke="#d9dce5"/>
+      <text y="272" fill="#667087" font-family="Arial, sans-serif" font-size="17">Final Private</text>
+      <text x="304" y="272" fill="#242a3b" font-family="Arial, sans-serif" font-size="24" font-weight="700">0.21395</text>
+      <text y="306" fill="#8a91a4" font-family="Arial, sans-serif" font-size="15">Public–Private score gap +0.026706</text>
+    </g>
+  </g>
+
+  <path d="M690 195v548" stroke="#d9dce5"/>
+
+  <g transform="translate(750 205)">
+    <text fill="#242a3b" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2">TRAINING STOP · POST-HOC REVIEW</text>
+    <text y="58" fill="#1c2232" font-family="Arial, sans-serif" font-size="29" font-weight="700">더 낮은 val loss가 더 좋은 생성은 아니었습니다.</text>
+    <g transform="translate(0 103)">
+      <rect width="330" height="194" rx="22" fill="#171d2d"/>
+      <text x="28" y="47" fill="#9fa9c9" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">POST-HOC POSE OOD</text>
+      <text x="28" y="121" fill="#8de3ff" font-family="Arial, sans-serif" font-size="58" font-weight="700">41%</text>
+      <text x="28" y="160" fill="#d5d9e7" font-family="Arial, sans-serif" font-size="16">89 / 216 · model fixed first</text>
+    </g>
+    <g transform="translate(354 103)">
+      <rect width="330" height="194" rx="22" fill="#eeeefa" stroke="#d3d1ee"/>
+      <text x="28" y="47" fill="#726aa7" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">STOPPING POINT</text>
+      <text x="28" y="121" fill="#5f56c9" font-family="Arial, sans-serif" font-size="53" font-weight="700">95.5K</text>
+      <text x="28" y="160" fill="#555c70" font-family="Arial, sans-serif" font-size="16">sample exposures</text>
+    </g>
+    <g transform="translate(0 325)">
+      <rect width="684" height="201" rx="22" fill="#f1f3f8" stroke="#d9dce5"/>
+      <text x="28" y="47" fill="#667087" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">FINAL INFERENCE</text>
+      <g transform="translate(28 78)">
+        <text fill="#202638" font-family="Arial, sans-serif" font-size="31" font-weight="700">AUTO 0.6</text>
+        <text x="211" fill="#202638" font-family="Arial, sans-serif" font-size="31" font-weight="700">30 STEPS</text>
+        <text x="435" fill="#202638" font-family="Arial, sans-serif" font-size="31" font-weight="700">57.9 MIN</text>
+        <text y="37" fill="#7b8296" font-family="Arial, sans-serif" font-size="14">guidance</text>
+        <text x="211" y="37" fill="#7b8296" font-family="Arial, sans-serif" font-size="14">20 → 30, 45 no gain</text>
+        <text x="435" y="37" fill="#7b8296" font-family="Arial, sans-serif" font-size="14">216 videos · local</text>
+      </g>
+      <path d="M28 148h628" stroke="#d2d6e1"/>
+      <text x="28" y="178" fill="#5f56c9" font-family="Arial, sans-serif" font-size="15" font-weight="700">ACTION CFG OFF · FIRST FRAME ANCHOR · YUV420P</text>
+    </g>
+  </g>
+
+  <g transform="translate(104 790)">
+    <text fill="#5d6478" font-family="Arial, sans-serif" font-size="17">95.5K 중단은 학습 후퇴로 결정했고, OOD 통계는 수상 모델 확정 뒤 사후 분석에만 사용했습니다.</text>
+  </g>
+</svg>
