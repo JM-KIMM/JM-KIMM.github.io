@@ -1008,8 +1008,6 @@ body { font-size: 15px; letter-spacing: -.012em; }
 .journey-flow.is-compact > article { padding-top: 24px; padding-bottom: 24px; }
 .journey-flow.is-compact > article.is-upcoming { padding: 23px 20px; }
 .journey-flow.is-compact .journey-copy h3 { font-size: 18px; }
-.about-journey-section { margin-top: 64px; padding-top: 58px; }
-
 .project-continuity { padding-top: 74px; padding-bottom: 82px; border-top: 1px solid var(--ink); scroll-margin-top: 78px; }
 .continuity-heading { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 28px; margin-bottom: 34px; }
 .continuity-heading > span { color: var(--muted); font: 600 10px 'IBM Plex Mono', monospace; }
@@ -1056,7 +1054,6 @@ body { font-size: 15px; letter-spacing: -.012em; }
 }
 
 @media (max-width: 700px) {
-  .about-journey-section { margin-top: 52px; padding-top: 50px; }
   .journey-flow > article,
   .journey-flow.is-compact > article { grid-template-columns: 1fr; gap: 14px; padding: 22px 0; }
   .journey-flow > article.is-upcoming,

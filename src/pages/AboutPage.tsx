@@ -1,5 +1,3 @@
-import JourneyFlow from '../components/JourneyFlow'
-
 const education = [
   ['인하대학교', '인공지능공학과'],
   ['LG Aimers 9기', 'AI Essential Course 이수 · LG AI 해커톤 완료'],
@@ -58,10 +56,6 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <section className="about-record-section about-journey-section">
-        <header><span>03</span><div><p className="eyebrow">STORYLINE</p><h2>How each step connected</h2></div></header>
-        <JourneyFlow />
-      </section>
     </section>
   )
 }
