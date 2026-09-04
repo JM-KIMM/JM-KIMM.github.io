@@ -24,7 +24,7 @@ export default function AboutPage() {
     <section className="page page-pad about-page about-v2">
       <div className="about-profile-layout">
         <aside className="about-identity">
-          <div className="about-monogram about-photo"><img src="./assets/jinmyung-profile.jpeg" alt="김진명 프로필 사진" /></div>
+          <div className="about-monogram about-photo"><img src="./assets/jinmyung-profile.jpeg?v=20260904" alt="김진명 프로필 사진" /></div>
           <div className="about-person"><h1>김진명</h1><p>Jinmyung Kim</p></div>
           <dl className="identity-facts">
             <div><dt>MAJOR</dt><dd>인공지능공학과</dd></div>
