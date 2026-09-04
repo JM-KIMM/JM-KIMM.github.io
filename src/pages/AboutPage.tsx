@@ -1,5 +1,5 @@
 const education = [
-  ['재학', '인하대학교', '인공지능공학과'],
+  ['2026.08', '인하대학교', '인공지능공학과 졸업'],
   ['2024-2', '인하-동동(同動)', '학습공동체 · 팀장 · 팀원 전원 A+'],
   ['2025-1', '인하-동동(同動)', '학습공동체 · 팀원 · 우수상'],
   ['2025.06—26.03', 'AIF.Lab 학부연구생', '한국어 스미싱 탐지 연구'],
@@ -37,7 +37,7 @@ export default function AboutPage() {
         <div className="about-main-copy">
           <p className="eyebrow">ABOUT ME</p>
           <div className="about-status">
-            <div><small>EDUCATION</small><b>인하대학교 인공지능공학과</b></div>
+            <div><small>EDUCATION · 2026.08</small><b>인하대학교 인공지능공학과</b><span>졸업</span></div>
             <div><small>CURRENT · 2026.09.01 —</small><b>행정안전부 인턴</b><span>RAG · MCP 구축</span></div>
           </div>
 

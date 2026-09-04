@@ -668,7 +668,7 @@ body { font-size: 15px; letter-spacing: -.012em; }
 .about-timeline h3 { margin: 6px 0 0; font-size: 17px; }
 .about-timeline b { display: block; margin-bottom: 8px; font-size: 13px; }
 .about-timeline p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
-.about-timeline article.is-upcoming { margin-top: 8px; padding: 20px; border: 1px solid var(--ink); border-radius: 14px; }
+.about-timeline article.is-current { margin-top: 8px; padding: 20px; border: 1px solid var(--ink); border-radius: 14px; }
 .capability-list { border-top: 1px solid var(--ink); }
 .capability-list article { display: grid; grid-template-columns: 54px 110px 220px 1fr; gap: 24px; align-items: start; padding: 21px 0; border-bottom: 1px solid var(--line); }
 .capability-list article > span,
@@ -753,7 +753,7 @@ body { font-size: 15px; letter-spacing: -.012em; }
   .about-record-section > header h2 { font-size: 28px; }
   .about-timeline article { grid-template-columns: 1fr; gap: 10px; }
   .about-timeline article > div:last-child { grid-column: 1; }
-  .about-timeline article.is-upcoming { padding: 18px; }
+  .about-timeline article.is-current { padding: 18px; }
   .capability-list article { grid-template-columns: 34px 1fr; gap: 10px 14px; }
   .capability-list h3 { grid-column: 2; }
   .capability-list p { grid-column: 2; }
@@ -994,7 +994,7 @@ body { font-size: 15px; letter-spacing: -.012em; }
   border-bottom: 1px solid var(--line);
   align-items: start;
 }
-.journey-flow > article.is-upcoming { margin-top: -1px; padding: 27px 24px; border: 1px solid var(--ink); background: var(--soft); }
+.journey-flow > article.is-current { margin-top: -1px; padding: 27px 24px; border: 1px solid var(--ink); background: var(--soft); }
 .journey-index { display: flex; flex-direction: column; gap: 10px; }
 .journey-index > span { font: 600 10px 'IBM Plex Mono', monospace; }
 .journey-index time { color: var(--muted); font: 500 9px/1.5 'IBM Plex Mono', monospace; }
@@ -1006,7 +1006,7 @@ body { font-size: 15px; letter-spacing: -.012em; }
 .journey-handoff { padding-left: 22px; border-left: 1px solid var(--line); }
 .journey-handoff > p { margin-top: 10px; color: var(--ink); font-weight: 650; }
 .journey-flow.is-compact > article { padding-top: 24px; padding-bottom: 24px; }
-.journey-flow.is-compact > article.is-upcoming { padding: 23px 20px; }
+.journey-flow.is-compact > article.is-current { padding: 23px 20px; }
 .journey-flow.is-compact .journey-copy h3 { font-size: 18px; }
 .project-continuity { padding-top: 74px; padding-bottom: 82px; border-top: 1px solid var(--ink); scroll-margin-top: 78px; }
 .continuity-heading { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 28px; margin-bottom: 34px; }
@@ -1056,8 +1056,8 @@ body { font-size: 15px; letter-spacing: -.012em; }
 @media (max-width: 700px) {
   .journey-flow > article,
   .journey-flow.is-compact > article { grid-template-columns: 1fr; gap: 14px; padding: 22px 0; }
-  .journey-flow > article.is-upcoming,
-  .journey-flow.is-compact > article.is-upcoming { padding: 20px; }
+  .journey-flow > article.is-current,
+  .journey-flow.is-compact > article.is-current { padding: 20px; }
   .journey-index { flex-direction: row; justify-content: space-between; gap: 18px; }
   .journey-handoff { grid-column: 1; }
   .journey-copy h3,
@@ -1258,7 +1258,7 @@ body { letter-spacing: -.012em; }
 .journey-copy h3 { max-width: 600px; font-size: 18px; }
 .journey-copy > p { max-width: 660px; font-size: 12px; }
 .journey-handoff > p { font-size: 11px; font-weight: 600; }
-.journey-flow > article.is-upcoming { padding: 23px 20px; background: var(--paper); }
+.journey-flow > article.is-current { padding: 23px 20px; background: var(--paper); }
 .activity-item { grid-template-columns: 52px .72fr 1.78fr 135px; padding: 31px 0; }
 .activity-purpose { display: grid; grid-template-columns: 58px 1fr; gap: 14px; margin: 17px 0 16px !important; padding: 14px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .activity-purpose small,

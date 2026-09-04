@@ -4,7 +4,7 @@ export type JourneyChapter = {
   title: string
   body: string
   handoff: string
-  upcoming?: boolean
+  current?: boolean
 }
 
 export const journeyChapters: JourneyChapter[] = [
@@ -112,6 +112,6 @@ export const journeyChapters: JourneyChapter[] = [
     title: '행정안전부 인턴',
     body: '공공 업무를 위한 RAG와 MCP 구축을 담당하고 있습니다.',
     handoff: '문서 검색, 근거 제시와 업무 도구 연결을 실제 행정 환경에서 다루고 있습니다.',
-    upcoming: true,
+    current: true,
   },
 ]

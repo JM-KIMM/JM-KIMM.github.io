@@ -4,7 +4,7 @@ export default function JourneyFlow({ compact = false }: { compact?: boolean }) 
   return (
     <div className={`journey-flow ${compact ? 'is-compact' : ''}`}>
       {journeyChapters.map((chapter, index) => (
-        <article className={chapter.upcoming ? 'is-upcoming' : ''} key={chapter.stage}>
+        <article className={chapter.current ? 'is-current' : ''} key={chapter.stage}>
           <div className="journey-index">
             <span>{String(index + 1).padStart(2, '0')}</span>
             <time>{chapter.period}</time>

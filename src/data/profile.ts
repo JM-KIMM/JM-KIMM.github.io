@@ -1,9 +1,9 @@
 export const careerFlow = [
   {
-    period: 'NOW',
+    period: '2026.08',
     stage: 'FOUNDATION',
     title: '인하대학교 인공지능공학과',
-    role: '인공지능공학 전공',
+    role: '졸업',
   },
   {
     period: '2025 — 2026',
