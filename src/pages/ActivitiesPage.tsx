@@ -1,9 +1,10 @@
 import { competitionActivities, learningActivities, type Activity } from '../data/activities'
+import { newestFirst } from '../data/chronology'
 
 function ActivityList({ activities }: { activities: Activity[] }) {
   return (
     <div className="activity-list">
-      {[...activities].sort((a, b) => a.sortKey.localeCompare(b.sortKey)).map((activity, index) => (
+      {newestFirst(activities).map((activity, index) => (
         <article className="activity-item" key={activity.title}>
           <div className="activity-index">{String(index + 1).padStart(2, '0')}</div>
           <div className="activity-heading">

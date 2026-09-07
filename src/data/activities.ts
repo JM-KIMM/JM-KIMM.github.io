@@ -4,6 +4,7 @@ export type Activity = {
   subtitle: string
   period: string
   role: string
+  aboutDetail?: string
   summary: string
   points: string[]
   purpose: string
@@ -14,11 +15,12 @@ export type Activity = {
 
 export const learningActivities: Activity[] = [
   {
-    sortKey: '2026-06-22',
+    sortKey: '2026-09-02',
     title: 'LG Aimers 9기',
     subtitle: 'LG AI연구원 청년 AI 인재 교육 프로그램',
     period: '2026.06.22 — 09.02',
     role: 'AI 교육 · 온라인 해커톤 완료',
+    aboutDetail: 'AI Essential Course 이수 · LG AI 해커톤 완료',
     summary: 'AI Essential Course를 이수하고 LG 산업 데이터 기반 온라인 해커톤까지 마쳤습니다.',
     points: [
       'Tabular ML · 시계열 · LLM Agent 교육',
@@ -35,6 +37,7 @@ export const learningActivities: Activity[] = [
     subtitle: 'LG AI연구원 청년 AI 인재 교육 프로그램',
     period: '2026 · 8기',
     role: '교육과정 수료',
+    aboutDetail: 'LG AI연구원 청년 AI 인재 교육 프로그램 수료',
     summary: 'EXAONE 경량화 과제를 중심으로 모델의 정확도뿐 아니라 크기와 추론 효율을 함께 다루는 실전형 AI 최적화 과정을 이수했습니다.',
     points: [
       'EXAONE 4.0 1.2B 기반 LLM 경량화 문제 이해',
@@ -46,27 +49,29 @@ export const learningActivities: Activity[] = [
     url: 'https://www.lgresearch.ai/news/view?seq=638',
   },
   {
-    sortKey: '2026-02-23',
-    title: '제6회 Smart Semiconductor Academy',
-    subtitle: '생성형 AI, 반도체 AI 응용기술',
-    period: '2026.02.23 — 02.24',
-    role: '교육과정 수료',
-    summary: '생성형 AI와 반도체 AI 응용기술을 산업 관점에서 살펴보며, 소프트웨어 모델과 실제 연산 환경을 함께 보는 시야를 넓혔습니다.',
+    sortKey: '2025-02-25',
+    title: '2025년 제4회 Smart Semiconductor Academy',
+    subtitle: 'AI를 위한 반도체 기술 · AI Chip 설계, 소자, HBM',
+    period: '2025.02.24 — 02.25',
+    role: '참가',
+    aboutDetail: 'AI Chip 설계·소자·HBM 교육 참가',
+    summary: 'AI Chip 설계, 반도체 소자와 HBM을 다루는 교육에 참가해 AI 연산을 지원하는 하드웨어 기술을 살펴봤습니다.',
     points: [
-      '생성형 AI와 반도체 AI 응용 사례 학습',
-      'AI 연산을 지탱하는 하드웨어·패키징 관점 탐색',
-      '모델 설계와 실제 구동 환경의 연결 이해',
+      'AI Chip 설계와 반도체 소자 기술 학습',
+      'HBM 등 AI 연산을 위한 메모리 기술 이해',
+      'AI 소프트웨어와 하드웨어 실행 환경의 관계 확인',
     ],
     purpose: 'AI 모델이 실제로 실행되는 하드웨어와 연산 환경을 이해해 소프트웨어 관점의 편향을 보완하고자 했습니다.',
     carriedForward: '평가 장비와 메모리·연산 제약을 설계 초기에 확인하는 습관으로 이어져 LG Aimers와 CJ 제출 환경 구성에 도움이 됐습니다.',
-    url: 'https://ssakorea.kr/sub/conference/history',
+    url: 'https://www.semiconcampus.com/board/read.jsp?code=notice&id=2231',
   },
   {
-    sortKey: '2025-06-22',
+    sortKey: '2024-06',
     title: 'INHA 코드트리 코딩 캠프',
     subtitle: '인하대학교 SW중심대학사업단 코딩테스트 대비 전문 교육과정',
-    period: '2025.06.22 — 07.06',
+    period: '2024년 1학기',
     role: '교육생',
+    aboutDetail: '코딩테스트 대비 전문 교육과정 수료',
     summary: '자료구조와 알고리즘을 문제 유형별로 반복하며 구현 정확도와 풀이 속도를 함께 높이는 훈련을 진행했습니다.',
     points: [
       '코딩테스트 핵심 자료구조와 알고리즘 반복 학습',
@@ -75,14 +80,14 @@ export const learningActivities: Activity[] = [
     ],
     purpose: '모델과 라이브러리에 의존하기 전에 문제 조건을 읽고 직접 구현하는 기본기를 보강하고자 했습니다.',
     carriedForward: '풀이를 단계로 나누고 예외를 먼저 확인하는 방식이 한솔 2-pass와 CJ 측정 파이프라인의 기본 설계 습관이 됐습니다.',
-    url: 'https://www.codetree.ai/blog/ko/%EC%BD%94%EB%93%9C%ED%8A%B8%EB%A6%AC-%EC%9D%B8%ED%95%98%EB%8C%80-%EC%BD%94%EB%94%A9-%EC%BA%A0%ED%94%84-%EC%84%B1%EB%A3%8C2%EC%A3%BC%EA%B0%84-%EC%BD%94%EC%9D%B5-%EC%A0%90%EC%88%98-%ED%8F%89',
   },
   {
-    sortKey: '2025-03-01',
+    sortKey: '2025-06',
     title: '인하-동동(同動) · 2025-1',
     subtitle: '인하대학교 교수학습개발센터 학습공동체 프로그램',
     period: '2025-1',
     role: '팀원',
+    aboutDetail: '학습공동체 · 팀원 · 우수상',
     summary: '두 번째 학기에는 팀원으로 참여해 학습 내용을 서로 설명하고 풀이 과정에 피드백을 주고받았습니다.',
     points: [
       '학습 내용을 말로 설명하며 이해가 부족한 부분 확인',
@@ -95,11 +100,12 @@ export const learningActivities: Activity[] = [
     url: 'https://ctlt.inha.ac.kr/',
   },
   {
-    sortKey: '2024-09-01',
+    sortKey: '2024-12',
     title: '인하-동동(同動) · 2024-2',
     subtitle: '인하대학교 교수학습개발센터 학습공동체 프로그램',
     period: '2024-2',
     role: '팀장',
+    aboutDetail: '학습공동체 · 팀장 · 팀원 전원 A+',
     summary: '학습공동체 팀장으로 학습 목표와 역할을 정하고 일정, 주차별 활동과 회고를 관리했습니다.',
     points: [
       '팀 일정과 역할 분담 및 주차별 학습 기록 관리',
@@ -115,7 +121,7 @@ export const learningActivities: Activity[] = [
 
 export const competitionActivities: Activity[] = [
   {
-    sortKey: '2026-07-16',
+    sortKey: '2026-08-20',
     title: '2026 인하 인공지능 챌린지',
     subtitle: '로봇 미래 행동 영상 생성 · World Model Challenge',
     period: '2026.07 — 08',
@@ -128,7 +134,7 @@ export const competitionActivities: Activity[] = [
     url: 'https://dacon.io/competitions/official/236736/overview/description',
   },
   {
-    sortKey: '2026-06-22',
+    sortKey: '2026-07-16',
     title: 'CJ대한통운 미래기술챌린지 2026',
     subtitle: 'CCTV 영상 기반 화물 객체 분석',
     period: '2026.06 — 07',
@@ -141,7 +147,7 @@ export const competitionActivities: Activity[] = [
     url: 'https://www.cjlogistics.com/ko/newsroom/news/NR_00001351',
   },
   {
-    sortKey: '2025-07-14',
+    sortKey: '2025-09-30',
     title: '2025 금융 AI Challenge : 금융 AI 모델 경쟁',
     subtitle: '금융 분야 생성형 AI 모델 성능 경진',
     period: '2025.07 — 09',
@@ -154,7 +160,7 @@ export const competitionActivities: Activity[] = [
     url: 'https://www.dacon.io/competitions/official/236527/overview/description',
   },
   {
-    sortKey: '2025-07-01',
+    sortKey: '2025-08-12',
     title: '2025 SW중심대학 디지털 경진대회',
     subtitle: 'AI부문 · 생성형 AI(LLM)와 인간: 텍스트 판별 챌린지',
     period: '2025.07.01 — 08.12',
@@ -167,7 +173,7 @@ export const competitionActivities: Activity[] = [
     url: 'https://www.swuniv.kr/60/?bmode=view&idx=142839360',
   },
   {
-    sortKey: '2025-02-01',
+    sortKey: '2025-03-31',
     title: '한솔데코 시즌3 생성 AI 경진대회',
     subtitle: '건설공사 사고 예방 및 대응책 생성',
     period: '2025.02 — 03',
@@ -180,7 +186,7 @@ export const competitionActivities: Activity[] = [
     url: 'https://dacon.io/competitions/official/236455/overview/description',
   },
   {
-    sortKey: '2026-03-01',
+    sortKey: '2026-05-31',
     title: '2026 성남시 공공데이터 활용 시각화 경진대회',
     subtitle: '성남시 생활상권 성장 잠재력 분석 및 XAI',
     period: '2026.03 — 05',

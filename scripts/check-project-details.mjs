@@ -14,6 +14,11 @@ try {
   const { projects } = await vite.ssrLoadModule('/src/data/projects.ts')
   const { default: ProjectPage } = await vite.ssrLoadModule('/src/pages/ProjectPage.tsx')
   const { default: ProjectCard } = await vite.ssrLoadModule('/src/components/ProjectCard.tsx')
+  const { learningActivities, competitionActivities } = await vite.ssrLoadModule('/src/data/activities.ts')
+  const { educationRecords, awardRecords } = await vite.ssrLoadModule('/src/data/aboutRecords.ts')
+  const { newestFirst } = await vite.ssrLoadModule('/src/data/chronology.ts')
+  const { default: AboutPage } = await vite.ssrLoadModule('/src/pages/AboutPage.tsx')
+  const { default: ActivitiesPage } = await vite.ssrLoadModule('/src/pages/ActivitiesPage.tsx')
   assert.equal(projects.length, 7)
   assert.deepEqual(Object.keys(caseStudies).sort(), projects.map(p => p.slug).sort())
   assert.deepEqual(projects.map(p => p.sortKey), projects.map(p => p.sortKey).sort().reverse())
@@ -121,7 +126,7 @@ try {
     })
     return result
   }
-  assert.equal(declarations(cjCss, '.wrap')['max-width'], '1440px')
+  assert.equal(declarations(cjCss, '.wrap')['max-width'], '1320px')
   assert.equal(declarations(cjCss, 'h1')['max-width'], 'none')
   assert.equal(declarations(cjCss, '.badge b')['white-space'], 'normal')
   assert(declarations(cjCss, '.badges')['grid-template-columns'].includes('auto-fit'))
@@ -129,8 +134,48 @@ try {
   assert(!cjDocument.includes('min-width:590px'))
   assert(!cjDocument.includes('min-width:640px'))
   assert(cjDocument.includes('<b>50개 영상</b><span>총 435개 박스 분석</span>'))
-  assert.equal(declarations(postcss.parse(css), ':root')['--max'], '1400px')
-  assert.equal(declarations(postcss.parse(detailCss), '.detail-decision-body')['max-width'], '1040px')
+  assert.equal(declarations(postcss.parse(css), ':root')['--max'], '1280px')
+  assert.equal(declarations(postcss.parse(detailCss), '.detail-decision-body')['max-width'], '960px')
+  assert.equal(declarations(postcss.parse(css), '.dated-record-list time')['white-space'], 'normal')
+
+  const aboutHtml = renderToStaticMarkup(React.createElement(AboutPage))
+  const activitiesHtml = renderToStaticMarkup(React.createElement(ActivitiesPage))
+  for (const html of [aboutHtml, activitiesHtml]) {
+    assert(html.includes('2024년 1학기'))
+    assert(html.includes('2025년 제4회 Smart Semiconductor Academy'))
+    assert(html.includes('2025.02.24 — 02.25'))
+    assert(!html.includes('제6회 Smart Semiconductor Academy'))
+    assert(!html.includes('2025.06.22 — 07.06'))
+  }
+  const educationSource = aboutHtml.split('EDUCATION</p>')[1].split('AWARDS</p>')[0]
+  const awardSource = aboutHtml.split('AWARDS</p>')[1]
+  function assertRenderedOrder(html, entries, toLabel) {
+    let previous = -1
+    for (const entry of entries) {
+      const label = toLabel(entry)
+      const position = html.indexOf(label, previous + 1)
+      assert(position > previous, `Missing or out-of-order record: ${label}`)
+      previous = position
+    }
+  }
+  assert.deepEqual(educationRecords.map(r => r.sortKey), newestFirst(educationRecords).map(r => r.sortKey))
+  assert.deepEqual(awardRecords.map(r => r.sortKey), newestFirst(awardRecords).map(r => r.sortKey))
+  assertRenderedOrder(educationSource, educationRecords, r => `<time>${r.period}</time><b>${r.name}</b>`)
+  assertRenderedOrder(awardSource, awardRecords, r => `<time>${r.period}</time><b>${r.name}</b>`)
+  for (const activities of [learningActivities, competitionActivities]) {
+    const copy = activities.map(a => a.title)
+    assertRenderedOrder(activitiesHtml, newestFirst(activities), a => `<h3>${a.title}</h3>`)
+    assert.deepEqual(activities.map(a => a.title), copy, 'Sorting must not mutate source arrays')
+  }
+  for (const activity of learningActivities) {
+    const record = educationRecords.find(r => r.sortKey === activity.sortKey && r.period === activity.period)
+    assert(record, `About and Activities periods differ for ${activity.title}`)
+  }
+  assert.equal(educationRecords[0].name, 'LG Aimers 9기')
+  assert.equal(educationRecords.at(-1).name, 'INHA 코드트리 코딩 캠프')
+  assert.equal(awardRecords.at(-1).sortKey, '')
+  assert.equal(educationRecords.filter(r => r.name === '인하-동동(同動)').length, 2)
+  console.log('PASS About/Activities corrected dates, shared records and newest-first rendering')
   console.log('PASS research/service separation, Qwen long-context inputs and CJ layout regression checks')
   console.log('PASS missing route, card integration, labeling content, local resources and theme text contrast')
 } finally {

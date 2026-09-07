@@ -13,7 +13,7 @@
   --glass: rgba(253,253,253,.88);
   --soft: #eeeee9;
   --shadow: 0 18px 50px rgba(9,9,9,.08);
-  --max: 1400px;
+  --max: 1280px;
   color-scheme: light;
 }
 [data-theme='dark'] {
@@ -694,7 +694,7 @@ body { font-size: 15px; letter-spacing: -.012em; }
 .simple-record-list b { font-size: 13px; }
 .simple-record-list p { margin: 0; color: var(--muted); font-size: 12px; text-align: right; }
 .dated-record-list > div { grid-template-columns: 68px 1fr auto; }
-.dated-record-list time { color: var(--muted); font: 500 8px/1.5 'IBM Plex Mono', monospace; white-space: nowrap; }
+.dated-record-list time { min-width: 0; color: var(--muted); font: 500 8px/1.5 'IBM Plex Mono', monospace; white-space: normal; overflow-wrap: break-word; }
 
 @media (max-width: 900px) {
   .projects-intro { grid-template-columns: 1fr; gap: 40px; }

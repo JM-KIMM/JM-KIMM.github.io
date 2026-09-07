@@ -15,6 +15,8 @@ npm run dev
 
 - `src/data/caseStudies.ts`: 프로젝트 상세 문구, 시도와 선택, 결과, 그림·표, 출처 링크
 - `src/data/projects.ts`: 프로젝트 이름, 기간, 역할, 정렬 날짜, 카드 이미지
+- `src/data/activities.ts`: Activities 내용과 About에 함께 표시하는 교육·활동 기간
+- `src/data/aboutRecords.ts`: About의 학력·연구·수상 기록
 - `src/pages/ProjectPage.tsx`: 상세 페이지의 배치와 섹션 구성
 - `src/styles/project-detail.css`: 상세 페이지 글자 크기, 간격, 반응형·테마 스타일
 - `src/styles.css`의 `--max`: 사이트 공통 최대 가로 폭
@@ -26,6 +28,7 @@ npm run dev
 연구 이후 서비스 구현처럼 본 작업과 구분할 내용은 `followUp`에 작성하며, 해당 프로젝트의 시연 영상도 그 아래에 표시합니다.
 `npm run test:details`는 7개 상세 경로, 데이터·자료 링크, 중복 이미지, 테마 텍스트 대비를 점검합니다.
 이 검사는 실제 브라우저의 레이아웃·사용자 상호작용 검사를 대체하지 않습니다.
+About과 Activities는 `sortKey` 기준 최근순으로 표시합니다. 활동은 확인된 종료 시점을 사용하고, 학기 단위 기록은 정렬용 종료 월만 지정합니다. 정확한 날짜를 모르는 기록에 임의 날짜를 표시하지 않으며, 날짜 미상 수상은 마지막에 둡니다.
 
 ## GitHub Pages 배포
 
