@@ -1,215 +1,93 @@
+import type { CSSProperties } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import VideoEmbed from '../components/VideoEmbed'
+import ProjectFigure, { contentHref } from '../components/ProjectFigure'
 import { caseStudies } from '../data/caseStudies'
 import { projects } from '../data/projects'
 
-const assetUrl = (path: string) => `${import.meta.env.BASE_URL}${path}`
+function SectionHeading({ number, label, title }: { number: string; label: string; title: string }) {
+  return <header className="detail-section-heading"><p><span>{number}</span>{label}</p><h2>{title}</h2></header>
+}
 
 export default function ProjectPage() {
   const { slug } = useParams()
   const projectIndex = projects.findIndex((item) => item.slug === slug)
   const project = projects[projectIndex]
-  const caseStudy = slug ? caseStudies[slug] : undefined
+  const study = slug ? caseStudies[slug] : undefined
+  if (!project || !study) return <div className="page page-pad"><h1>프로젝트를 찾을 수 없습니다.</h1><Link to="/projects">프로젝트 목록으로</Link></div>
 
-  if (!project || !caseStudy) {
-    return <div className="page page-pad">프로젝트를 찾을 수 없습니다.</div>
-  }
-
-  const previewSrc = project.previewImage ? assetUrl(project.previewImage) : undefined
+  const titleUnits = [...project.detailTitle].reduce((sum, char) => sum + (/\s/.test(char) ? .3 : /[\x00-\x7F]/.test(char) ? .62 : 1), 0)
+  const overview = study.figures.find((figure) => figure.id === study.overviewFigure)
+  const inlineIds = new Set(study.decisions.map((decision) => decision.figure).filter(Boolean))
+  const remainingFigures = study.figures.filter((figure) => figure.id !== overview?.id && !inlineIds.has(figure.id))
+  const showDemo = () => document.getElementById('detail-demo')?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' })
 
   return (
-    <article className={`case-page case-${project.type.toLowerCase()}`} data-project={project.slug}>
-      <header className="case-hero page-pad" id="overview">
-        <div className="case-hero-topline">
-          <Link to="/projects" className="back-link">← Projects</Link>
-          <span>{String(projectIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}</span>
+    <article className="case-detail page-pad" data-project={project.slug}>
+      <header className="detail-hero">
+        <div className="detail-topline"><Link to="/projects">← Projects</Link><span>{String(projectIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}</span></div>
+        <div className="detail-title-wrap" style={{ '--title-units': titleUnits } as CSSProperties}>
+          <p className="detail-eyebrow">{project.type === 'Research' ? 'RESEARCH' : 'PROJECT'} · {project.shortTitle}</p>
+          <h1>{project.detailTitle}</h1>
         </div>
-
-        <div className="case-hero-heading">
-          <div>
-            <p className="eyebrow">{project.type.toUpperCase()} · {project.period}</p>
-            <h1>{project.detailTitle}</h1>
-          </div>
-          <p className="case-lede">{caseStudy.lede}</p>
+        <p className="detail-lede">{study.lede}</p>
+        <div className="detail-links" aria-label="프로젝트 관련 자료">
+          <a href={project.github} target="_blank" rel="noreferrer">{project.hasImplementation ? 'GitHub' : '연구 소개'} ↗</a>
+          {study.resources.map((resource) => <a key={resource.url} href={contentHref(resource.url)} target="_blank" rel="noreferrer">{resource.title} ↗</a>)}
+          {project.videoId && <button type="button" onClick={showDemo}>시연 영상 ↓</button>}
         </div>
-
-        {previewSrc && (
-          <figure className="case-cover">
-            <img src={previewSrc} alt={project.previewAlt ?? `${project.title} 대표 이미지`} />
-            <figcaption>
-              <span>{project.previewLabel}</span>
-              <span>{project.shortTitle}</span>
-            </figcaption>
-          </figure>
-        )}
-
-        <div className="case-meta">
-          <dl>
-            <div><dt>PERIOD</dt><dd>{project.period}</dd></div>
-            {project.role && <div><dt>ROLE</dt><dd>{project.role}</dd></div>}
-            <div><dt>MY PART</dt><dd>{project.ownership}</dd></div>
-            {project.team && <div><dt>TEAM</dt><dd>{project.team}</dd></div>}
-            {project.rank && <div><dt>RESULT</dt><dd>{project.rank}</dd></div>}
-          </dl>
-          <p>{caseStudy.ownershipNote}</p>
-        </div>
-
+        <dl className="detail-meta">
+          <div><dt>기간</dt><dd>{project.period}</dd></div>
+          {project.team && <div><dt>팀 구성</dt><dd>{project.team}</dd></div>}
+          {project.role && <div><dt>역할</dt><dd>{project.role}</dd></div>}
+        </dl>
+        <div className="detail-ownership"><span>담당 업무</span><p>{study.ownershipNote}</p></div>
       </header>
 
-      <section className="case-brief page-pad" id="brief">
-        <div className="case-section-heading">
-          <span>01</span>
-          <div><p className="eyebrow">CASE BRIEF</p><h2>프로젝트 요약</h2></div>
-        </div>
+      <section className="detail-section detail-overview" aria-label="프로젝트 개요">
+        <SectionHeading number="01" label="OVERVIEW" title="프로젝트 개요" />
+        <p className="detail-problem">{study.problem}</p>
+        <div className="detail-result-strip"><span>결과</span><p>{study.result}</p></div>
+        {project.videoId ? <div className="detail-preview" id="detail-demo"><h3>실행 화면</h3><VideoEmbed videoId={project.videoId} title={`${project.shortTitle} 실행 시연`} /></div> : overview ? <div className="detail-preview"><ProjectFigure figure={overview} eager /></div> : null}
+      </section>
 
-        <div className="case-brief-grid">
-          <article><small>PROBLEM</small><p>{caseStudy.brief.problem}</p></article>
-          <article><small>RESPONSE</small><p>{caseStudy.brief.response}</p></article>
-          <article><small>OUTCOME</small><p>{caseStudy.brief.outcome}</p></article>
-        </div>
-
-        <div className="case-proof-grid">
-          {caseStudy.proofs.map((proof) => (
-            <article key={proof.label}>
-              <strong>{proof.value}</strong>
-              <small>{proof.label}</small>
-              <p>{proof.note}</p>
-            </article>
-          ))}
-        </div>
-
-        <div className="case-constraints">
-          <div><p className="eyebrow">CONSTRAINTS</p><h3>먼저 고정한 현실 조건</h3></div>
-          <ol>{caseStudy.constraints.map((constraint) => <li key={constraint}>{constraint}</li>)}</ol>
+      <section className="detail-section" aria-label="선택과 근거">
+        <SectionHeading number="02" label="DECISION TRAIL" title="선택과 근거" />
+        <div className="detail-decisions">
+          {study.decisions.map((decision, index) => {
+            const figure = study.figures.find((item) => item.id === decision.figure && item.id !== overview?.id)
+            return (
+              <article className="detail-decision" key={decision.title}>
+                <header><span>{String(index + 1).padStart(2, '0')}</span><h3>{decision.title}</h3></header>
+                <div className="detail-decision-body">
+                  <div className="detail-situation"><h4>{decision.basis === 'experiment' ? '실험에서 확인한 문제' : '설계 배경'}</h4><p>{decision.situation}</p></div>
+                  <div><h4>접근 방법</h4><p>{decision.approach}</p></div>
+                  <div className="detail-expectation"><h4>기대한 효과</h4><p>{decision.expectation}</p></div>
+                  <div className="detail-outcome"><h4>결과</h4><p>{decision.outcome}</p></div>
+                  <details className="detail-implementation"><summary>세부 구현 내용</summary><ul>{decision.implementation.map((item) => <li key={item}>{item}</li>)}</ul></details>
+                  <a className="detail-source" href={contentHref(decision.source.url)} target="_blank" rel="noreferrer">{decision.source.title} ↗</a>
+                  {figure && <ProjectFigure figure={figure} />}
+                </div>
+              </article>
+            )
+          })}
         </div>
       </section>
 
-      <section className="case-decisions page-pad" id="decisions">
-        <div className="case-section-heading">
-          <span>02</span>
-          <div><p className="eyebrow">DECISION TRAIL</p><h2>선택과 근거</h2></div>
-        </div>
-
-        <div className="case-decision-list">
-          {caseStudy.decisions.map((decision) => (
-            <article key={decision.label}>
-              <header>
-                <small>{decision.label}</small>
-                <h3>{decision.title}</h3>
-              </header>
-
-              <div className="case-decision-trigger">
-                <small>TRIGGER</small>
-                <p>{decision.trigger}</p>
-              </div>
-
-              <div className="case-decision-options">
-                <small>CONSIDERED</small>
-                <ul>{decision.options.map((option) => <li key={option}>{option}</li>)}</ul>
-              </div>
-
-              <div className="case-decision-choice">
-                <small>CHOICE</small>
-                <p>{decision.choice}</p>
-              </div>
-
-              <div className="case-decision-rationale">
-                <small>WHY</small>
-                <p>{decision.rationale}</p>
-              </div>
-
-              <div className="case-decision-build">
-                <small>IMPLEMENTATION</small>
-                <ul>{decision.implementation.map((item) => <li key={item}>{item}</li>)}</ul>
-              </div>
-
-              {decision.proof && <p className="case-decision-proof"><b>PROOF</b>{decision.proof}</p>}
-            </article>
-          ))}
-        </div>
+      <section className="detail-section" aria-label="구현 구조">
+        <SectionHeading number="03" label="IMPLEMENTATION" title="구현 구조" />
+        <ol className="detail-flow">{study.flow.map((step, index) => <li key={step.title}><span>{String(index + 1).padStart(2, '0')}</span><div><h3>{step.title}</h3><p>{step.detail}</p></div></li>)}</ol>
+        {remainingFigures.map((figure) => <ProjectFigure key={figure.id} figure={figure} />)}
       </section>
 
-      <section className="case-system page-pad" id="system">
-        <div className="case-section-heading">
-          <span>03</span>
-          <div><p className="eyebrow">SYSTEM</p><h2>구현 구조</h2></div>
+      <section className="detail-section detail-retrospective" aria-label="결과와 회고">
+        <SectionHeading number="04" label="RETROSPECTIVE" title="결과와 회고" />
+        <div className="detail-review-grid">
+          <div><h3>작업을 통해 정리한 점</h3><p>{study.reflection}</p></div>
+          <div><h3>한계와 후속 검증</h3><ul>{study.limitations.map((item) => <li key={item}>{item}</li>)}</ul></div>
         </div>
-
-        <div className="case-system-grid">
-          {caseStudy.system.map((step, index) => (
-            <article key={`${step.label}-${step.title}`}>
-              <div><span>{String(index + 1).padStart(2, '0')}</span><small>{step.label}</small></div>
-              <h3>{step.title}</h3>
-              <p>{step.body}</p>
-              <b>{step.tech}</b>
-            </article>
-          ))}
-        </div>
+        {study.scopeNote && <p className="detail-scope"><span>공개 자료 범위</span>{study.scopeNote}</p>}
       </section>
-
-      <section className="case-evidence page-pad" id="evidence">
-        <div className="case-section-heading">
-          <span>04</span>
-          <div><p className="eyebrow">IMPLEMENTATION DETAILS</p><h2>세부 구현 내용</h2></div>
-        </div>
-
-        <div className="case-evidence-list">
-          {caseStudy.evidence.map((evidence, index) => (
-            <article key={evidence.image}>
-              <figure>
-                <img src={assetUrl(evidence.image)} alt={evidence.alt} loading="lazy" />
-                <figcaption>{evidence.source}</figcaption>
-              </figure>
-              <div>
-                <span>{String(index + 1).padStart(2, '0')} · {evidence.label}</span>
-                <h3>{evidence.title}</h3>
-                <p>{evidence.body}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="case-validation page-pad" id="validation">
-        <div className="case-section-heading">
-          <span>05</span>
-          <div><p className="eyebrow">VALIDATION</p><h2>확인한 것과 남은 것</h2></div>
-        </div>
-
-        <div className="case-validation-grid">
-          <article>
-            <small>VERIFIED</small>
-            <h3>근거로 확인한 결과</h3>
-            <ul>{caseStudy.validation.verified.map((item) => <li key={item}>{item}</li>)}</ul>
-          </article>
-          <article>
-            <small>BOUNDARY</small>
-            <h3>현재 구현의 경계</h3>
-            <ul>{caseStudy.validation.boundary.map((item) => <li key={item}>{item}</li>)}</ul>
-          </article>
-          <article>
-            <small>NEXT TEST</small>
-            <h3>다음 검증</h3>
-            <ul>{caseStudy.validation.next.map((item) => <li key={item}>{item}</li>)}</ul>
-          </article>
-        </div>
-      </section>
-
-      <section className="case-handoff page-pad">
-        <div><small>FROM</small><p>{caseStudy.handoff.from}</p></div>
-        <div><small>CARRIED FORWARD</small><p>{caseStudy.handoff.to}</p></div>
-      </section>
-
-      {project.videoId && (
-        <section className="case-demo page-pad" id="demo">
-          <div className="case-section-heading">
-            <span>▶</span>
-            <div><p className="eyebrow">DEMO</p><h2>실행 화면</h2></div>
-          </div>
-          <VideoEmbed videoId={project.videoId} title={`${project.title} demo`} />
-        </section>
-      )}
-
     </article>
   )
 }

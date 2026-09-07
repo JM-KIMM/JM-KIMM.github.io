@@ -11,6 +11,19 @@ npm run dev
 
 프로덕션 빌드는 `npm run build`로 생성하며 결과물은 `dist/`에 저장됩니다.
 
+## 내용 수정
+
+- `src/data/caseStudies.ts`: 프로젝트 상세 문구, 시도와 선택, 결과, 그림·표, 출처 링크
+- `src/data/projects.ts`: 프로젝트 이름, 기간, 역할, 정렬 날짜, 카드 이미지
+- `src/pages/ProjectPage.tsx`: 상세 페이지의 배치와 섹션 구성
+- `src/styles/project-detail.css`: 상세 페이지 글자 크기, 간격, 반응형·테마 스타일
+
+실험 기록이 있는 항목은 `basis: 'experiment'`, 설계상 고려한 문제는 `basis: 'design'`으로 구분합니다.
+비교 조건과 결과가 확인되지 않는 실패 횟수나 성능 개선 수치는 추가하지 않습니다.
+이미지는 `figures`에 한 번 등록하고 `overviewFigure` 또는 각 선택의 `figure`로 연결합니다.
+`npm run test:details`는 7개 상세 경로, 데이터·자료 링크, 중복 이미지, 테마 텍스트 대비를 점검합니다.
+이 검사는 실제 브라우저의 레이아웃·사용자 상호작용 검사를 대체하지 않습니다.
+
 ## GitHub Pages 배포
 
 이 저장소는 `main` 브랜치에 변경 사항이 올라오면 GitHub Actions가 자동으로 빌드하고 Pages에 배포합니다.
