@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
-  <title id="title">Construction safety two-LLM context compression</title>
-  <desc id="desc">유사 QA 검색 결과를 VARCO가 핵심 근거로 압축하고 Qwen이 최종 안전 대응책을 생성하는 연결 구조</desc>
+  <title id="title">Construction safety two-LLM long-context generation</title>
+  <desc id="desc">VARCO의 중간 출력과 사고 입력·RAG 문서를 Qwen 14B 1M에 함께 전달해 최종 안전 대응책을 생성하는 구조</desc>
   <rect width="1600" height="900" fill="#e8e9e4"/>
   <rect x="58" y="58" width="1484" height="784" rx="28" fill="#242725"/>
   <path d="M106 142h1388" stroke="#474b48"/>
@@ -50,17 +50,20 @@
   <g transform="translate(1144 205)">
     <rect width="350" height="430" rx="24" fill="#303431" stroke="#bfcc60" stroke-width="2"/>
     <text x="28" y="48" fill="#aab0aa" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">03 · ANSWER PASS</text>
-    <text x="28" y="119" fill="#f2f2ec" font-family="Arial, sans-serif" font-size="36" font-weight="700">QWEN 14B</text>
-    <text x="28" y="167" fill="#aeb4ae" font-family="Arial, sans-serif" font-size="18">압축 근거로 최종</text>
-    <text x="28" y="198" fill="#aeb4ae" font-family="Arial, sans-serif" font-size="18">안전 대응책 생성</text>
+    <text x="28" y="119" fill="#f2f2ec" font-family="Arial, sans-serif" font-size="29" font-weight="700">QWEN 14B · 1M</text>
+    <text x="28" y="167" fill="#aeb4ae" font-family="Arial, sans-serif" font-size="18">사고 입력·검색 문서와</text>
+    <text x="28" y="198" fill="#aeb4ae" font-family="Arial, sans-serif" font-size="18">중간 출력을 함께 반영</text>
     <circle cx="54" cy="282" r="17" fill="none" stroke="#bfcc60" stroke-width="3"/>
     <path d="m46 282 6 7 13-17" fill="none" stroke="#bfcc60" stroke-width="3"/>
     <path d="M83 282h200M28 323h255" stroke="#9aa19b" stroke-width="7" stroke-linecap="round"/>
-    <text x="28" y="391" fill="#bfcc60" font-family="Arial, sans-serif" font-size="14" font-weight="700">FINAL FORMAT · INT8</text>
+    <text x="28" y="391" fill="#bfcc60" font-family="Arial, sans-serif" font-size="14" font-weight="700">LONG CONTEXT · FINAL ANSWER</text>
   </g>
 
-  <g transform="translate(108 723)">
-    <text fill="#f1f1ec" font-family="Arial, sans-serif" font-size="24" font-weight="700">제한된 토큰을 반복 문장보다 핵심 안전 정보에 사용했습니다.</text>
-    <text y="45" fill="#929a93" font-family="Arial, sans-serif" font-size="16">QA RETRIEVAL · TASK-AWARE SUMMARY · CONTEXT HANDOFF · FINAL ANSWER</text>
+  <path d="M195 460v211h1124v-25M523 635v36" fill="none" stroke="#bfcc60" stroke-width="2" stroke-dasharray="7 5"/>
+  <path d="m1311 655 8-10 8 10" fill="none" stroke="#bfcc60" stroke-width="2"/>
+  <text x="675" y="698" fill="#bfcc60" font-family="Arial, sans-serif" font-size="17">사고 입력 + RAG 검색 문서</text>
+  <g transform="translate(108 752)">
+    <text fill="#f1f1ec" font-family="Arial, sans-serif" font-size="23" font-weight="700">정보 정리는 VARCO, 입력·문서·중간 결과를 함께 읽는 최종 생성은 Qwen 14B 1M.</text>
+    <text y="39" fill="#929a93" font-family="Arial, sans-serif" font-size="16">QA RETRIEVAL · INTERMEDIATE OUTPUT · LONG CONTEXT · FINAL ANSWER</text>
   </g>
 </svg>

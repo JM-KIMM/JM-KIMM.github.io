@@ -5,6 +5,7 @@ import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { MemoryRouter, Routes, Route } from 'react-router-dom'
 import { createServer } from 'vite'
+import postcss from 'postcss'
 
 // Non-browser smoke tests: data integrity, all detail routes, links and theme colors.
 const vite = await createServer({ server: { middlewareMode: true }, appType: 'custom' })
@@ -59,7 +60,15 @@ try {
     assert.equal((html.match(/<figure\b/g) || []).length, study.figures.length)
     assert.equal((html.match(/<details\b/g) || []).length, study.decisions.length)
     assert(!/NEXT PROJECT|CARRIED FORWARD|30초|정교하지만 틀린 계측기/.test(html))
-    if (project.videoId) assert(html.indexOf('youtube-nocookie.com/embed/') < html.indexOf('class="detail-decisions"'))
+    if (project.videoId) {
+      assert.equal((html.match(/youtube-nocookie.com\/embed\//g) || []).length, 1)
+      assert.equal((html.match(/id="detail-demo"/g) || []).length, 1)
+      const videoPosition = html.indexOf('youtube-nocookie.com/embed/')
+      if (study.followUp) {
+        assert(videoPosition > html.indexOf('class="detail-flow"'), 'Follow-up service must come after the research process')
+        assert(videoPosition > html.indexOf('class="detail-followup"'))
+      } else assert(videoPosition < html.indexOf('class="detail-decisions"'))
+    }
     for (const anchor of html.matchAll(/<a\b[^>]*target="_blank"[^>]*>/g)) assert(anchor[0].includes('rel="noreferrer"'))
     const card = renderToStaticMarkup(React.createElement(MemoryRouter, null, React.createElement(ProjectCard, { project, index })))
     assert(card.includes(study.cardLine))
@@ -70,6 +79,16 @@ try {
   assert(caseStudies['cj-logistics-3d-box'].decisions[0].implementation.some(s => s.includes('visibility=2')))
   assert(caseStudies['undergraduate-research-smishing'].decisions[1].approach.includes('GPT-4o'))
   assert.equal(caseStudies['undergraduate-research-smishing'].figures.find(f => f.id === 'benchmark').rows.length, 6)
+  const research = caseStudies['undergraduate-research-smishing']
+  assert(research.lede.includes('논문'))
+  assert.equal(research.flow.at(-1).title, '논문 작성')
+  assert(research.followUp.description.includes('5명이'))
+  assert(!research.ownershipNote.includes('데모'))
+  assert(renderRoute('undergraduate-research-smishing').includes('연구 진행'))
+  const hansol = caseStudies['hansol-2pass']
+  assert(hansol.decisions[0].approach.includes('Qwen2.5-14B-Instruct-1M'))
+  assert(hansol.decisions[0].approach.includes('사고 입력과 RAG 문서도 함께'))
+  assert(hansol.limitations.some(s => s.includes('실제 제출 입력이 100만 토큰이었다는 의미는 아닙니다')))
   assert(caseStudies['inha-world-model'].decisions[1].situation.includes('목적함수·샘플러·조건 표현·추론 설정을 유지'))
 
   const css = readFileSync('src/styles.css', 'utf8')
@@ -91,6 +110,28 @@ try {
   assert(detailCss.includes('@media (max-width: 440px)'))
   assert(detailCss.includes('white-space: normal'))
   assert(detailCss.includes('overflow-x: auto'))
+  // CSS regression checks, not a browser layout test. Check effective base declarations
+  // across the two style blocks in the standalone CJ document.
+  const cjDocument = readFileSync('public/docs/cj-algorithm-note.html', 'utf8')
+  const cjCss = postcss.parse([...cjDocument.matchAll(/<style\b[^>]*>([\s\S]*?)<\/style>/g)].map(m => m[1]).join('\n'))
+  const declarations = (root, selector) => {
+    const result = {}
+    root.walkRules(rule => {
+      if (rule.parent.type === 'root' && rule.selector === selector) rule.walkDecls(decl => { result[decl.prop] = decl.value })
+    })
+    return result
+  }
+  assert.equal(declarations(cjCss, '.wrap')['max-width'], '1440px')
+  assert.equal(declarations(cjCss, 'h1')['max-width'], 'none')
+  assert.equal(declarations(cjCss, '.badge b')['white-space'], 'normal')
+  assert(declarations(cjCss, '.badges')['grid-template-columns'].includes('auto-fit'))
+  assert(!declarations(cjCss, '.hero-grid')['grid-template-columns'].includes('420px'))
+  assert(!cjDocument.includes('min-width:590px'))
+  assert(!cjDocument.includes('min-width:640px'))
+  assert(cjDocument.includes('<b>50개 영상</b><span>총 435개 박스 분석</span>'))
+  assert.equal(declarations(postcss.parse(css), ':root')['--max'], '1400px')
+  assert.equal(declarations(postcss.parse(detailCss), '.detail-decision-body')['max-width'], '1040px')
+  console.log('PASS research/service separation, Qwen long-context inputs and CJ layout regression checks')
   console.log('PASS missing route, card integration, labeling content, local resources and theme text contrast')
 } finally {
   await vite.close()

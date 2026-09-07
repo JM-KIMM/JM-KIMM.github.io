@@ -48,7 +48,7 @@ export default function ProjectPage() {
         <SectionHeading number="01" label="OVERVIEW" title="프로젝트 개요" />
         <p className="detail-problem">{study.problem}</p>
         <div className="detail-result-strip"><span>결과</span><p>{study.result}</p></div>
-        {project.videoId ? <div className="detail-preview" id="detail-demo"><h3>실행 화면</h3><VideoEmbed videoId={project.videoId} title={`${project.shortTitle} 실행 시연`} /></div> : overview ? <div className="detail-preview"><ProjectFigure figure={overview} eager /></div> : null}
+        {project.videoId && !study.followUp ? <div className="detail-preview" id="detail-demo"><h3>실행 화면</h3><VideoEmbed videoId={project.videoId} title={`${project.shortTitle} 실행 시연`} /></div> : overview ? <div className="detail-preview"><ProjectFigure figure={overview} eager /></div> : null}
       </section>
 
       <section className="detail-section" aria-label="선택과 근거">
@@ -74,10 +74,11 @@ export default function ProjectPage() {
         </div>
       </section>
 
-      <section className="detail-section" aria-label="구현 구조">
-        <SectionHeading number="03" label="IMPLEMENTATION" title="구현 구조" />
+      <section className="detail-section" aria-label={project.type === 'Research' ? '연구 진행' : '구현 구조'}>
+        <SectionHeading number="03" label={project.type === 'Research' ? 'RESEARCH PROCESS' : 'IMPLEMENTATION'} title={project.type === 'Research' ? '연구 진행' : '구현 구조'} />
         <ol className="detail-flow">{study.flow.map((step, index) => <li key={step.title}><span>{String(index + 1).padStart(2, '0')}</span><div><h3>{step.title}</h3><p>{step.detail}</p></div></li>)}</ol>
         {remainingFigures.map((figure) => <ProjectFigure key={figure.id} figure={figure} />)}
+        {study.followUp && <div className="detail-followup"><h3>{study.followUp.title}</h3><p>{study.followUp.description}</p>{project.videoId && <div className="detail-preview" id="detail-demo"><VideoEmbed videoId={project.videoId} title={`${project.shortTitle} 후속 서비스 시연`} /></div>}</div>}
       </section>
 
       <section className="detail-section detail-retrospective" aria-label="결과와 회고">
